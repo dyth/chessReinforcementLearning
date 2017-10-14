@@ -5,7 +5,15 @@ Version control and backup for code written for University of Cambridge Computer
 
 Based off the amazing Giraffe engine by Matthew Lai.
 
-## How to build Giraffe
+## Play against Giraffe
+```
+sudo apt-get install xboard
+xboard
+```
+then on the GUI, under `engine > Edit Engine List ...` add the line `"<path/to/root/giraffe/directory>" -fd "<path/to/root/giraffe/directory>/giraffe"`
+
+
+## Compiling Giraffe from Source
 
 ```
 sudo apt-get install mercurial
