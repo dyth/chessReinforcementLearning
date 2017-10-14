@@ -29,7 +29,8 @@ cd lua-5.3.4
 Install Torch
 ```
 git clone https://github.com/torch/distro.git ~/torch --recursive
-cd ~/torch; bash install-deps;
+cd ~/torch
+bash install-deps
 ./install.sh
 source ~/.bashrc
 ```
