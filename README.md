@@ -1,0 +1,2 @@
+# chessReinforcementLearning
+Investigating searching algorithms with reinforcement learning trained evaluator fuctions
