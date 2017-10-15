@@ -39,6 +39,13 @@ Then make giraffe
 make
 ```
 
+## Train Giraffe
+1. [Download, extract, rename to `ccrl.fen`](https://bitbucket.org/waterreaction/giraffe/downloads/ccrl4040_shuffled_5M.epd.gz)
+2. [Download](https://bitbucket.org/waterreaction/giraffe/downloads/sts.epd)
+3. Move all into root of giraffe
+3. Run `nproc` to find the number of cores
+4. `OMP_NUM_THREADS=<number returned by nproc> ./giraffe tdl ccrl.fen sts.epd`
+
 ## Food for thought
 
 * Look at Slonik
