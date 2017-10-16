@@ -1,5 +1,14 @@
-# chessReinforcementLearning
+# Deep Reinforcement Learning for Chess
+or Combining Function Approximation from Reinforcement Learning with Knowledge Engineering Algorithms in the context of Chess
+
 Investigating searching algorithms with reinforcement learning trained evaluator fuctions.
+
+## Interesting papers
+
+Giraffe: Deep Reinforcement Learning in Chess: https://arxiv.org/abs/1509.01549
+Introduction to Reinforcement Learning: https://arxiv.org/pdf/1701.07274v5.pdf 
+Python Deep Learning library: http://pytorch.org
+Considerations: https://chessprogramming.wikispaces.com/Board+Representation 
 
 Version control and backup for code written for University of Cambridge Computer Science Tripos Part II Dissertation Project.
 
@@ -54,3 +63,4 @@ make
 * David Silver, Meep. Uses TreeStrap and Linear models
 * Universal Chess Interface, GUI: Scid, PC, Chessbase
 * Magic numbers
+* Investigate / implement MTD(bi)
