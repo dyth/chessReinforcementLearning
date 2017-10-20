@@ -15,10 +15,10 @@
 
 \centerline{\huge Deep Reinforcement Learning For Chess}
 \vspace{0.2in}
-\centerline{\large Combining Rule-Based Search Algorithms with Deep}
-\vspace{0.05in}
-\centerline{\large Reinforcement Learning in the Context of Chess}
-\vspace{0.45in}
+%\centerline{\large Combining Rule-Based Search Algorithms with Deep}
+%\vspace{0.05in}
+%\centerline{\large Reinforcement Learning in the Context of Chess}
+%\vspace{0.45in}
 \centerline{\large Originator: David Yu-Tung Hui}
 \vspace{0.05in}
 \centerline{\large Project Supervisor: Dr. Sean Holden}
@@ -28,9 +28,9 @@
 
 \section*{Introduction}
 
-\paragraph{}Recent advances in Artificial Intelligence combine the strengths of two subfields to produce powerful hybrid agents. Such agent architectures include AlphaGo, the first computer program to play Go with superhuman ability. \cite{AlphaGo} By harnassing data-based Deep Reinforcement Learning approximators with classical search algorithms, hybrid architectures possess the advantages of both fields, as well as their weaknesses.
+\paragraph{}Recent advances in Artificial Intelligence combine the strengths of two subfields to produce powerful hybrid agents. Such agent architectures include AlphaGo, the first computer program to play Go with superhuman ability. \cite{AlphaGo} By harnessing Deep Reinforcement Learning with classical search algorithms, hybrid architectures possess the advantages, as well as weaknesses, of both fields.
 
-\paragraph{}To analyse such architectures, I will reimplement \textit{Giraffe}, a predecessor of AlphaGo. Developed by Matthew Lai, Giraffe was trained on a CPU in Chess, achieving a strength of an international master. \cite{giraffe} My reimplementation would run on a GPU, making it one of the first chess engines to do so. With the increasing cost-effectiveness of GPUs, speedups in Deep Learning are attained and are becoming more popular. In Chess, GPUs are rarely used because most agents rely on hand-crafted algorithms with no machine learning. Optional further extensions would modify the searching algorithm and conduct empirical user studies.
+\paragraph{}To analyse such architectures, I will reimplement \textit{Giraffe}, a predecessor of AlphaGo. Developed by Matthew Lai, Giraffe was trained on a CPU in Chess, achieving a strength of an international master. \cite{giraffe} My reimplementation would run on a GPU, making it one of the first chess engines to do so. With the increasing cost-effectiveness of GPUs, speedups in Deep Learning are attained and are becoming more popular. However, they are rarely used in Chess because most agents rely on hand-crafted search and evaluation algorithms with no machine learning. Optional further extensions would modify the searching algorithm and conduct empirical user studies.
 
 \paragraph{}Combining rule based algorithms with Deep Learning would unify many years of orthogonal research, and perhaps provide a foundation of the direction to come. It is possible that this new architecture may yield a new strategy within the game of Chess, enhancing the knowledge of the game as well as providing a new opponent for humans to train against.
 
@@ -38,13 +38,13 @@
 
 \paragraph{}The finished codebase will consist of an agent capable of playing against chess engines and humans using the GNUChess / XBoard Communication Protocol. Deep Learning networks run on top of an internal board representation, adapted from Giraffe. This contains rules and constraints on the legality of moves. Optional project extensions add another searching algorithm for comparison. In addition to the code, analysis of the above techniques will be summarised in the Dissertation.
 
-\paragraph{}Giraffe is based around \textit{Probability-Limited Search}. From the current board position, a \textit{game tree} is created by simulating all possible games until the probability of principal variation dips below a threshold value. Principal variation occurs when the nature of the game changes, for instance between midgame and endgame, or in checkmate, when a player wins. \textit{Minimax} runs on over the tree to find the optimal move. This is so named because the best move selects the maximum value out of the minimum values your opponent can force.
+\paragraph{}Giraffe is based around \textit{Probability-Limited Search}. From the current board position, a \textit{game tree} is created by simulating all possible games until the probability of principal variation dips below a threshold value. Principal variation occurs when the nature of the game changes, for instance between midgame and endgame, or in checkmate, when a player wins. \textit{Minimax} runs on the tree to find the optimal move. This is so named because the best move maximises the minimum values your opponent can force.
 
-\paragraph{}Built around this are two \textit{deep neural networks}, the quality of which are the most important part of the project. One neural network evaluates the value of a board and is known as the \textit{value network}. The other estimates the probability of principle variation, generating the search tree. As Chess players have timed moves, these will have to be coded efficiently to maximise the number of moves searched.
+\paragraph{}Built around this are two \textit{deep neural networks}, the quality of which are the most important part of the project. One neural network evaluates the value of a board and is known as the \textit{value network}. The other estimates the probability of principle variation, generating the search tree. As Chess players have timed moves, these will have to be coded efficiently to search as many nodes as possible.
 
-\paragraph{} There are two training phases. First, (board, distance-to-checkmate) pairs pre-train the value network by \textit{supervised learning}, where distance-to-checkmate is an initial approximation of value. During the second phase, the agent plays against itself and learns by \textit{Temporal difference learning} within \textit{Reinforcement Learning}. A classic Reinforcement Learning problem is the \textit{exploitation vs exploration} tradeoff whereupon the agent balances exploiting the optimal strategy from numerous explorations. Giraffe explores by randomly generating a move during training or by adding or removing pieces to the board. \textit{Memoisation} keeps track of which boards have been seen. \cite{giraffe}
+\paragraph{} There are two training phases. First, (board, distance-to-checkmate) pairs pre-train the value network by \textit{supervised learning}, where distance-to-checkmate is an initial approximation of value. During the second phase, the agent plays against itself in \textit{Reinforcement Learning}, specifically in \textit{Temporal difference learning}. A classic Reinforcement Learning problem is the \textit{exploitation vs exploration} tradeoff whereupon the agent balances exploiting the optimal strategy from numerous exploratory strategies. Giraffe explores by randomly generating a move during training or by adding or removing pieces to the board. \textit{Memoisation} keeps track of which boards have been seen. \cite{giraffe}
 
-\paragraph{}The optional extension would be to implement a search algorithm similar to AlphaGo. It uses \textit{Monte Carlo Tree Search} instead of Probability-Limited Search. Here, the search tree is limited by a \textit{policy network}. This generates three promising next moves from a board, greatly reducing the \textit{branching factor}, or breadth of the search tree. \cite{AlphaGo}
+\paragraph{}The optional extension implements a search algorithm similar to AlphaGo. It uses \textit{Monte Carlo Tree Search} instead of Probability-Limited Search in Giraffe. Here, the search tree is limited by a \textit{policy network}, which generates three promising next moves from a board, greatly reducing the \textit{branching factor}, or breadth of the search tree. \cite{AlphaGo}
 
 \paragraph{}Overall, the project can be categorised into five stages. During \textit{preparation}, I will investigate papers and courses concerning Chess and Reinforcement Learning. \cite{giraffe} \cite{AlphaGo} \cite{TD-Gammon} \cite{knightcap} This would enable me to structure the project and select programming languages, libraries, and protocols.
 
@@ -59,13 +59,13 @@
 
 \subsection*{Tripos Courses}
 
-\paragraph{Artificial Intelligence, Part IB} The course introduces the concept of an \textit{agent} and an \textit{environment}, as well as two principle components of the project: \textit{Searching Algorithms} and \textit{Backpropagation}. These concepts would be fundamental to how the structure of the codebase would be laid out.
+\paragraph{Artificial Intelligence, Part IB} The course introduces the concept of an \textit{agent} and an \textit{environment}, as well as two principle project components: \textit{Searching Algorithms} and \textit{Backpropagation}. These concepts would be fundamental to understanding an overview of Giraffe and how the structure of the codebase would be laid out.
 
 \paragraph{Machine Learning and Baysean Inference, Part II} Expanding on Artificial Intelligence, this course introduces \textit{Reinforcement Learning} and \textit{Temporal Difference Learning}, techniques used in both Giraffe and AlphaGo. As these is a Lent course, I will read other literature alongside last year's lecture notes to understand the algorithms.
 
 \paragraph{} These two courses provide a solid foundation for understanding the original TD-Gammon, KnightCap, AlphaGo and Giraffe papers.
 
-\paragraph{Algorithms, Part IA} Taught concepts such as runtime and asymptotic complexity would be a solid foundation for comparing Giraffe and AlphaGo with each other as well as other search algorithms the course introduces.
+\paragraph{Algorithms, Part IA} Taught concepts such as runtime and asymptotic complexity would be a solid foundation for comparing Giraffe and AlphaGo with each other, as well as comparing the search algorithms within each engine to commonly used search algorithms.
 
 \paragraph{Programming in C / C++, Part IB} Many chess engines and position evaluators are implemented in C or C++. By describing the low-level function and utility of operators this course would be useful when isolating parts of Giraffe that I need. In addition, C++ can be used to create custom Deep Learning functions within PyTorch, such as custom layers, activation, loss or reward functions.
 
@@ -78,16 +78,22 @@
 
 \paragraph{XBoard / WinBoard Communication Protocol} XBoard, or WinBoard on PC, is a GUI useful for debugging. It supports the XBoard Communication Protocol, the most popular protocol for chess engines to communicate.
 
-\paragraph{CCRL, Gaviota} The Computer Chess Rating Lists specialise in agent to agent training. Games can be downloaded from the website and used to train Giraffe. Each gameboard can then be annotated by Gaviota to produce (board, distance-to-checkmate) pairs used in training. \cite{gaviota} \cite{giraffe}
+\paragraph{CCRL, Gaviota} The Computer Chess Rating Lists specialise in agent to agent training. Games can be downloaded from the website and used to train Giraffe. Each chessboard can then be annotated by Gaviota to produce (board, distance-to-checkmate) pairs used in training. \cite{gaviota} \cite{giraffe}
 
 \paragraph{Python, PyTorch} The PyTorch Package runs on top of Python, abstracting GPU processes to construct and train deep networks. As the main complexity of the project is successfully creating a deep network, this ecosystem has adequate flexibility to experiment and implement various network designs. \cite{PyTorch} 
 
 
 \section*{Evaluation}
 
-\paragraph{} The most popular metric is \textbf{ELO}, an internationally used strength metric. The most advanced chess engines have 3200 ELO whereas an amateur human has 1000. \cite{giraffe} This can be estimated using the OrdoELO or BayesELO test suites. At a more fine grained level, the \textbf{Strategic Test Suite} tests agents on how quickly and accurately they recognise optimal moves on a chessboard level. \cite{sts} In contrast to both, \textbf{empirical user studies} can analyse style, aesthetics and humanlike qualities of an agent. However, none of the above explicitly measures whether the agent has been successfully trained. This is because an agent is more likely to perform better against strong opponents, rather than against any opponent, because the agent trains by playing itself. Therefore I shall use the following metric for evaluation.
+\paragraph{} The most popular metric is \textbf{ELO}, an internationally recognised strength metric. The most advanced chess engines have 3200 ELO whereas an amateur human has 1000. \cite{giraffe} This can be estimated using the OrdoELO or BayesELO test suites. At a more fine grained level, the \textbf{Strategic Test Suite} tests agents on how quickly and accurately they recognise optimal moves over 10000 positions. \cite{sts} In contrast to both, \textbf{empirical user studies} analyse style, aesthetics and humanlike qualities of an agent. However, none of the above explicitly measures whether the agent has been successfully trained. This is because an agent is more likely to perform better against strong opponents, rather than against any opponent, because the agent trains by playing itself. Therefore I shall use the following statistical test for evaluation.
 
-\paragraph{Success Criterion}: The agent beats an opponent playing randomly-generated moves within 40 rounds, to 95 \% significance. More formally, 40 rounds is equivalent to 80 plys, or a move from one player. These values were chosen because the mean length of a chess match is around 80 plys, and 5 \% is the lowest commonly used significance threshold for p-values. The same criterion will be used to evaluate the agent with the AlphaGo architecture.
+\paragraph{Null Hypothesis}: Within a chess game of 80 plys, there is no significant difference between a trained agent and one that plays randomly generated moves. A ply is the unit of a turn from a player.
+
+\paragraph{Alternate Hypothesis}: Within a chess game of 80 plys, a trained agent performs better than one that plays randomly generated moves.
+
+\paragraph{Significance}: 95 \%
+
+\paragraph{}These values were chosen because the mean length of a chess match is around 80 plys, and 5 \% is the lowest commonly used significance threshold. The same criterion will be used to evaluate the optional extension, though will not affect how the project's assessment.
 
 
 \section*{Plan of work}
