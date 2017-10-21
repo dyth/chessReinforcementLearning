@@ -23,10 +23,11 @@ sudo apt-get install bouml
 
 #### 2017.10.17
 
-* Install Hg-Git to interface with Giraffe on Mercurial
-
+* Install Git-Hg to interface with Giraffe on Mercurial
+* convert giraffe from .hg to .git
 ```
-sudo apt-get install python-dev
-sudo easy_install hg-git
-echo "[extensions] \n hgext.bookmarks = \n hggit =" > ~/.hgrc
+sudo apt install hg-fast-export
+git-hg clone --force https://bitbucket.org/waterreaction/giraffe
+mv .hgignore .gitignore
 ```
+* then add to repository. Unfortunately, `rm -rf .git` had to be called because it contained large files exceeding github's limit, negating any advantage of using git-hg!
