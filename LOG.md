@@ -20,3 +20,12 @@ echo "deb http://bouml.free.fr/apt/xenial xenial free" | sudo tee -a /etc/apt/so
 sudo apt-get update
 sudo apt-get install bouml
 ```
+
+#### 2017.10.17
+
+* Install Hg-Git to interface with Giraffe on Mercurial
+
+```
+sudo apt-get install python-dev
+sudo easy_install hg-git
+```
