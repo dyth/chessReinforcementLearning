@@ -28,4 +28,5 @@ sudo apt-get install bouml
 ```
 sudo apt-get install python-dev
 sudo easy_install hg-git
+echo "[extensions] \n hgext.bookmarks = \n hggit =" > ~/.hgrc
 ```
