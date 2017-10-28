@@ -5,10 +5,11 @@ Investigating searching algorithms with reinforcement learning trained evaluator
 
 ## Interesting papers
 
-Giraffe: Deep Reinforcement Learning in Chess: https://arxiv.org/abs/1509.01549
-Introduction to Reinforcement Learning: https://arxiv.org/pdf/1701.07274v5.pdf 
-Python Deep Learning library: http://pytorch.org
-Considerations: https://chessprogramming.wikispaces.com/Board+Representation 
+* Giraffe: Deep Reinforcement Learning in Chess: https://arxiv.org/abs/1509.01549
+* Introduction to Reinforcement Learning: https://arxiv.org/pdf/1701.07274v5.pdf 
+* Another intro https://arxiv.org/pdf/1708.05866.pdf
+* Python Deep Learning library: http://pytorch.org
+* Considerations: https://chessprogramming.wikispaces.com/Board+Representation 
 
 Version control and backup for code written for University of Cambridge Computer Science Tripos Part II Dissertation Project.
 
