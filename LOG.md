@@ -31,3 +31,27 @@ git-hg clone --force https://bitbucket.org/waterreaction/giraffe
 mv .hgignore .gitignore
 ```
 * then add to repository. Unfortunately, `rm -rf .git` had to be called because it contained large files exceeding github's limit, negating any advantage of using git-hg!
+
+### 2017.10.29
+
+* See architecture
+
+```
+th
+
+require 'nn'
+require 'SlicedParallel.lua'
+require 'optnet'
+a = torch.load('evalPyTorch.t7', 'ascii')
+net, input = a
+generateGraph = require 'optnet.graphgen'
+
+graphOpts = {
+displayProps =  {shape='ellipse',fontsize=14, style='solid'},
+nodeData = function(oldData, tensor)
+  return oldData .. '\n' .. 'Size: '.. tensor:numel()
+end
+}
+
+g = generateGraph(net, input, graphOpts)
+```
