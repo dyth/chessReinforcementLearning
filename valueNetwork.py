@@ -8,41 +8,38 @@ import torch.nn as nn
 import torch.nn.functional as F
 
 
+# save floating point values
+Tensor = FloatTensor
+
 # if gpu use cuda
 use_cuda = torch.cuda.is_available()
 FloatTensor = torch.cuda.FloatTensor if use_cuda else torch.FloatTensor
 LongTensor = torch.cuda.LongTensor if use_cuda else torch.LongTensor
 ByteTensor = torch.cuda.ByteTensor if use_cuda else torch.ByteTensor
-Tensor = FloatTensor
 
 
-class ValueNet(torch.nn.Module):
-    def __init__(self, D_in, H, D_out):
-        """
-        In the constructor we construct three nn.Linear instances that we will use
-        in the forward pass.
-        """
-        super(DynamicNet, self).__init__()
-        self.input_linear = torch.nn.Linear(D_in, H)
-        self.middle_linear = torch.nn.Linear(H, H)
-        self.output_linear = torch.nn.Linear(H, D_out)
-
+class evalNet(nn.Module):
+    """
+    Value Network Layers, Architecture and forward pass
+    """
+    def __init__(self):
+        super(Net, self).__init__()
+        self.fc1 = nn.Linear(368, 95)
+        #self.fc1_1 = nn.Linear(24, 24)
+        #self.fc1_2 = nn.Linear(80, 17)
+        #self.fc1_3 = nn.Linear(136, 34)
+        #self.fc1_4 = nn.Linear(128, 20)
+        
+        self.fc2 = nn.Linear(95, 64)
+        self.fc2 = nn.Linear(64, 1)
+        self.relu = nn.ReLU()
+        self.tanh = nn.Tanh()
+    
     def forward(self, x):
-        """
-        For the forward pass of the model, we randomly choose either 0, 1, 2, or 3
-        and reuse the middle_linear Module that many times to compute hidden layer
-        representations.
-
-        Since each forward pass builds a dynamic computation graph, we can use normal
-        Python control-flow operators like loops or conditional statements when
-        defining the forward pass of the model.
-
-        Here we also see that it is perfectly safe to reuse the same Module many
-        times when defining a computational graph. This is a big improvement from Lua
-        Torch, where each Module could be used only once.
-        """
-        h_relu = self.input_linear(x).clamp(min=0)
-        for _ in range(random.randint(0, 3)):
-            h_relu = self.middle_linear(h_relu).clamp(min=0)
-        y_pred = self.output_linear(h_relu)
-        return y_pred
+        out = self.fc1(x)
+        out = self.relu(out)
+        out = self.fc2(out)
+        out = self.relu(out)
+        out = self.fc3(out)
+        out = self.tanh(out)
+        return out
