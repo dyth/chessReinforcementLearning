@@ -6,25 +6,24 @@ import torch
 from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
+import torch.optim as optim
 
-
-# save floating point values
-Tensor = FloatTensor
 
 # if gpu use cuda
 use_cuda = torch.cuda.is_available()
 FloatTensor = torch.cuda.FloatTensor if use_cuda else torch.FloatTensor
+Tensor = FloatTensor
 LongTensor = torch.cuda.LongTensor if use_cuda else torch.LongTensor
 ByteTensor = torch.cuda.ByteTensor if use_cuda else torch.ByteTensor
 
 
-class evalNet(nn.Module):
+class EvalNet(nn.Module):
     """
     Value Network Layers, Architecture and forward pass
     """
     def __init__(self):
         'initialise all the layers and activation functions needed'
-        super(Net, self).__init__()
+        super(EvalNet, self).__init__()
         # fully connected first layer
         self.fc1 = nn.Linear(368, 95)
 
@@ -33,36 +32,40 @@ class evalNet(nn.Module):
         self.fc1_2 = nn.Linear(80, 17)
         self.fc1_3 = nn.Linear(136, 34)
         self.fc1_4 = nn.Linear(128, 20)
-        
+
+        # second and third layers
         self.fc2 = nn.Linear(95, 64)
         self.fc3 = nn.Linear(64, 1)
-        self.relu = nn.ReLU()
-        self.tanh = nn.Tanh()
-    
+
+        
     def forward(self, inputLayer):
         'compute the forward pass of the network'
         # fully connected first layer
-        #out = self.fc1(inputLayer)
+        #out = F.relu(self.fc1(inputLayer))
         
         # slice input layer
-        inputLayer_1 = inputLayer.narrow(0, 0, 24)
-        inputLayer_2 = inputLayer.narrow(0, 24, 104)
-        inputLayer_3 = inputLayer.narrow(0, 104, 240)
-        inputLayer_4 = inputLayer.narrow(0, 240, 368)
+        out_1 = inputLayer.narrow(1, 0, 24)
+        out_2 = inputLayer.narrow(1, 24, 80)
+        out_3 = inputLayer.narrow(1, 104, 136)
+        out_4 = inputLayer.narrow(1, 240, 128)
 
         # output slices
-        out_1 = self.fc1_1(inputLayer_1)
-        out_2 = self.fc1_2(inputLayer_2)
-        out_3 = self.fc1_3(inputLayer_3)
-        out_4 = self.fc1_4(inputLayer_4)
+        out_1 = self.fc1_1(out_1)
+        out_2 = self.fc1_2(out_2)
+        out_3 = self.fc1_3(out_3)
+        out_4 = self.fc1_4(out_4)
 
         # concatenate all outputs
-        out = torch.cat((out_1, out_2, out_3, out_4), 0)
+        out = F.relu(torch.cat((out_1, out_2, out_3, out_4), 1))
         
         # second and third layers, output should be between -1 and +1
-        out = self.relu(out)
-        out = self.fc2(out)
-        out = self.relu(out)
-        out = self.fc3(out)
-        out = self.tanh(out)
+        out = F.relu(self.fc2(out))
+        out = F.tanh(self.fc3(out))
         return out
+
+
+evalNet = EvalNet()
+
+x = Variable(torch.FloatTensor(1, 368))
+outputs = evalNet(x)
+print outputs
