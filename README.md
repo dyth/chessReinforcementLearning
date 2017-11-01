@@ -56,6 +56,25 @@ make
 3. Run `nproc` to find the number of cores
 4. `OMP_NUM_THREADS=<number returned by nproc> ./giraffe tdl ccrl.fen sts.epd`
 
+## Giraffe Evaluator Network and PyTorch Parameter Type
+* Input layer divided up into four parallel sliced segments, as detailed below
+  * `fc1_1.weight torch.FloatTensor (24L, 24L)`
+  * `fc1_1.bias torch.FloatTensor (24L,)`
+  * `fc1_2.weight torch.FloatTensor (17L, 80L)`
+  * `fc1_2.bias torch.FloatTensor (17L,)`
+  * `fc1_3.weight torch.FloatTensor (34L, 136L)`
+  * `fc1_3.bias torch.FloatTensor (34L,)`
+  * `fc1_4.weight torch.FloatTensor (20L, 128L)`
+  * `fc1_4.bias torch.FloatTensor (20L,)`
+  
+* First hidden layer: concatenate all of the above and map to 64 neurons
+  * `fc2.weight torch.FloatTensor (64L, 95L)`
+  * `fc2.bias torch.FloatTensor (64L,)`
+
+* Second hidden layer: 64 to 1
+  * `fc3.weight torch.FloatTensor (1L, 64L)`
+  * `fc3.bias torch.FloatTensor (1L,)`
+
 ## Food for thought
 
 * Look at Slonik
