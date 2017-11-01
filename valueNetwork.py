@@ -24,9 +24,6 @@ class EvalNet(nn.Module):
     def __init__(self):
         'initialise all the layers and activation functions needed'
         super(EvalNet, self).__init__()
-        # fully connected first layer
-        self.fc1 = nn.Linear(368, 95)
-
         # sliced first layer
         self.fc1_1 = nn.Linear(24, 24)
         self.fc1_2 = nn.Linear(80, 17)
@@ -40,9 +37,6 @@ class EvalNet(nn.Module):
         
     def forward(self, inputLayer):
         'compute the forward pass of the network'
-        # fully connected first layer
-        #out = F.relu(self.fc1(inputLayer))
-        
         # slice input layer
         out_1 = inputLayer.narrow(1, 0, 24)
         out_2 = inputLayer.narrow(1, 24, 80)
@@ -69,3 +63,12 @@ evalNet = EvalNet()
 x = Variable(torch.FloatTensor(1, 368))
 outputs = evalNet(x)
 print outputs
+
+# save weights
+#torch.save(evalNet.state_dict(), "weights.t7")
+evalNet.load_state_dict(torch.load("weights.t7"))
+
+# print the name and what the datatype is to be expected
+parameters = evalNet.state_dict()
+for key in parameters:
+    print key, parameters[key].type(), parameters[key].size()
