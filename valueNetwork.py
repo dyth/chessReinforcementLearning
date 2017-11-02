@@ -60,15 +60,15 @@ class EvalNet(nn.Module):
 
 evalNet = EvalNet()
 
+# load weights
+from weightsToPyTorch import *
+parameters = read_parameters()
+evalNet.load_state_dict(parameters)
+
+# find the output
 x = Variable(torch.FloatTensor(1, 368))
 outputs = evalNet(x)
 print outputs
 
 # save weights
 #torch.save(evalNet.state_dict(), "weights.t7")
-evalNet.load_state_dict(torch.load("weights.t7"))
-
-# print the name and what the datatype is to be expected
-parameters = evalNet.state_dict()
-for key in parameters:
-    print key, parameters[key].type(), parameters[key].size()
