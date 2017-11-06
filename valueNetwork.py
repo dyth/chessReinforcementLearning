@@ -72,3 +72,7 @@ print outputs
 
 # save weights
 #torch.save(evalNet.state_dict(), "weights.t7")
+
+# TODO:
+investigate GPU
+bind to C++
