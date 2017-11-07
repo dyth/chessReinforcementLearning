@@ -53,6 +53,8 @@ const std::string InitFileName = "init.txt";
 
 std::string gVersion;
 
+
+// print Giraffe version to stdout
 void GetGiraffeVersion()
 {
 	std::ifstream verFile("version.txt");
@@ -72,6 +74,7 @@ void GetGiraffeVersion()
 #endif
 }
 
+// create network 
 void InitializeNetworks(ANNEvaluator &evaluator, ANNMoveEvaluator &mevaluator)
 {
 	std::ifstream evalNet(EvalNetFilename);
@@ -91,7 +94,8 @@ void InitializeNetworks(ANNEvaluator &evaluator, ANNMoveEvaluator &mevaluator)
 	std::cout << GTB::Init();
 }
 
-// fast initialization steps that can be done in main thread
+// fast initialization steps that is called in main
+// see how many threads can be utilized in the machine
 void Initialize()
 {
 	std::cout << "# Using " << omp_get_max_threads() << " OpenMP thread(s)" << std::endl;
@@ -121,6 +125,7 @@ void Initialize()
 	InitializeZobrist();
 }
 
+
 int main(int argc, char **argv)
 {
 	Initialize();
@@ -144,6 +149,9 @@ int main(int argc, char **argv)
 		return 0;
 	}
 
+	// if readable, create evaluation network
+	// if movenet, then pass evaluation network into movenet
+	// otherwise, use static evaluator functions
 	if (FileReadable(EvalNetFilename))
 	{
 		backend.SetEvaluator(&evaluator);
@@ -171,6 +179,7 @@ int main(int argc, char **argv)
 	}
 
 	// first we handle special operation modes
+	// TDL = Temporal Difference Learning
 	if (argc >= 2 && std::string(argv[1]) == "tdl")
 	{
 		if (argc < 4)
@@ -247,6 +256,7 @@ int main(int argc, char **argv)
 
 		return 0;
 	}
+	// bench is benchmark?
 	else if (argc >= 2 && std::string(argv[1]) == "bench")
 	{
 		double startTime = CurrentTime();
@@ -483,6 +493,7 @@ int main(int argc, char **argv)
 
 		return 0;
 	}
+	// play on xboard?
 	else if (argc >= 2 && std::string(argv[1]) == "move_stats")
 	{
 		if (argc < 3)
