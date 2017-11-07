@@ -55,3 +55,10 @@ end
 
 g = generateGraph(net, input, graphOpts)
 ```
+
+### 2017.11.07
+
+* Neural Network Initialise Functions from `main.cpp`
+  * `evaluator.Deserialize(EvalNetFilename)`
+  * `mevaluator.Deserialize(MoveEvalNetFilename)`
+  * `backend.SetEvaluator(&evaluator)`
