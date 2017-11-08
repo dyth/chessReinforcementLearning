@@ -4,10 +4,10 @@ convert weights from the torch .t7 format to the dictionary used in PyTorch
 """
 import re, torch
 
-def read_parameters():
+def read_parameters(filename):
     'read the parameters in the file eval.t7 and convert to PyTorch weights'
     weights = []
-    with open("eval.t7") as f:
+    with open(filename) as f:
         content = [x.strip() for x in f.readlines()] 
         for c in content:
             # regex to get all valid rows with type: string of float list

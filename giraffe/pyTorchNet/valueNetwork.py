@@ -9,6 +9,10 @@ import torch.nn.functional as F
 import torch.optim as optim
 
 
+# filename of the weights used
+filename = "../eval.t7"
+
+
 # if gpu use cuda
 use_cuda = torch.cuda.is_available()
 FloatTensor = torch.cuda.FloatTensor if use_cuda else torch.FloatTensor
@@ -62,7 +66,7 @@ evalNet = EvalNet()
 
 # load weights
 from weightsToPyTorch import *
-parameters = read_parameters()
+parameters = read_parameters(filename)
 evalNet.load_state_dict(parameters)
 
 # find the output
@@ -74,5 +78,5 @@ print outputs
 #torch.save(evalNet.state_dict(), "weights.t7")
 
 # TODO:
-investigate GPU
-bind to C++
+# investigate GPU
+# bind to C++

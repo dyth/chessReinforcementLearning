@@ -62,3 +62,11 @@ g = generateGraph(net, input, graphOpts)
   * `evaluator.Deserialize(EvalNetFilename)`
   * `mevaluator.Deserialize(MoveEvalNetFilename)`
   * `backend.SetEvaluator(&evaluator)`
+
+* An alternate implementation exists within `eigen_ann.cpp` and `eigen_ann.h`, which is faster than the Lua version
+
+* Lua Function Calls
+	* `giraffe/ann/ann.h`
+		* `class LuaFunctionCall`
+	* `giraffe/ann/ann.cpp`
+		* calls the class `LuaFunctionCall` twice
