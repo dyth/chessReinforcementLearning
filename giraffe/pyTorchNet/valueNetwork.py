@@ -8,6 +8,8 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 
+from weightsToPyTorch import *
+
 
 # filename of the weights used
 filename = "../eval.t7"
@@ -61,22 +63,31 @@ class EvalNet(nn.Module):
         out = F.tanh(self.fc3(out))
         return out
 
+def load_giraffe_weights(network):
+	'load weights trained by original Lua / C++ Giraffe'
+	return network.load_state_dict(read_parameters(filename))
 
-evalNet = EvalNet()
 
-# load weights
-from weightsToPyTorch import *
-parameters = read_parameters(filename)
-evalNet.load_state_dict(parameters)
+def forward_pass(x, network):
+	'do a forward pass of the network'
+	return network(Variable(x))
 
-# find the output
-x = Variable(torch.FloatTensor(1, 368))
-outputs = evalNet(x)
-print outputs
 
-# save weights
-#torch.save(evalNet.state_dict(), "weights.t7")
+def forward_test(network):
+	'do a forward pass of the network'
+	return network(Variable(torch.FloatTensor(1, 368)))
 
-# TODO:
-# investigate GPU
-# bind to C++
+
+if __name__ == "__main__":
+	'create network and verify it works with previous giraffe weights'
+	evalNet = EvalNet()
+	# verification: load weights and get output
+	evalNet = load_giraffe_weights(evalNet)
+	forward_pass(torch.FloatTensor(1, 368), evalNet)
+
+	# save weights
+	#torch.save(evalNet.state_dict(), "weights.t7")
+
+	# TODO:
+	# investigate GPU
+	# bind to C++

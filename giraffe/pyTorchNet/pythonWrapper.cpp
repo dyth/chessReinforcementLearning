@@ -5,36 +5,29 @@
 // Based on https://www.coveros.com/calling-python-code-from-c/
 int main(int argc, char *argv[])
 {
-	// Initialize Python interpreter and Python placeholder objects
+	// Initialize Python interpreter and pass any state variables
     Py_Initialize();
-    PyObject *pName, *pModule, *pDict, *pFunc, *pArgs, *pValue;
-	
-    // Filename -> Python string, then import file as a module
 	PySys_SetArgv(argc, argv);
-    pName = PyString_FromString("Sample");
-    pModule = PyImport_Import(pName);
 	
-    // Create a dictionary of module contents and get add method
-    pDict = PyModule_GetDict(pModule);
-    pFunc = PyDict_GetItemString(pDict, "add");
+	PyObject *pyName, *pyModule, *pyDict, *py_add, *pyArgs, *pya;
 	
-    // Create a Python argument tuple, set argument values to python methods
-    pArgs = PyTuple_New(2);
-    pValue = PyInt_FromLong(2);
-    PyTuple_SetItem(pArgs, 0, pValue);
-    PyTuple_SetItem(pArgs, 1, pValue);
+    // import file in python session using python string, get dict of functions 
+    pyName = PyString_FromString("Sample");
+    pyModule = PyImport_Import(pyName);
+    pyDict = PyModule_GetDict(pyModule);
+	
+    // Create Python argument tuple of python elements 
+    pyArgs = PyTuple_New(2);
+    pya = PyInt_FromLong(2);
+    PyTuple_SetItem(pyArgs, 0, pya);
+    PyTuple_SetItem(pyArgs, 1, pya);
 
-	// Call the function with the arguments. If call failed, print message
-    PyObject* pResult = PyObject_CallObject(pFunc, pArgs);
-    if(pResult == NULL)
-		printf("Calling the add method failed\n");
-	
-    // convert result from python object to long and destroy interpreter
-    long result = PyInt_AsLong(pResult);
+	// Call python function, convert result from python object, end
+	py_add = PyDict_GetItemString(pyDict, "add");
+    PyObject* pyResult = PyObject_CallObject(py_add, pyArgs);
+    long result = PyInt_AsLong(pyResult);
     Py_Finalize();
 	
-    // Print the result.
-    printf("The result is %ld\n", result);
-	std::cin.ignore();
-	return 0;
+    // Print result.
+    cout << "The result is %ld\n" << result;
 }
