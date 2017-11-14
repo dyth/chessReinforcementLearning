@@ -70,3 +70,9 @@ g = generateGraph(net, input, graphOpts)
 		* `class LuaFunctionCall`
 	* `giraffe/ann/ann.cpp`
 		* calls the class `LuaFunctionCall` twice
+
+### 2017.11.08
+
+* Compile test python + C++ bridge: `g++ -Wall -I/usr/include/python2.7 -std=gnu++0x pythonWrapper.cpp -lpython2.7`
+* Compile test python + C++ bridge: `g++ -Wall -I/usr/include/python2.7 -std=gnu++0x wrapperValueNetwork.cpp -lpython2.7`
+

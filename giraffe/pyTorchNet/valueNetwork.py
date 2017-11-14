@@ -65,7 +65,7 @@ class EvalNet(nn.Module):
 
 def load_giraffe_weights(network):
 	'load weights trained by original Lua / C++ Giraffe'
-	return network.load_state_dict(read_parameters(filename))
+	network.load_state_dict(read_parameters(filename))
 
 
 def forward_pass(x, network):
@@ -75,19 +75,16 @@ def forward_pass(x, network):
 
 def forward_test(network):
 	'do a forward pass of the network'
-	return network(Variable(torch.FloatTensor(1, 368)))
+	return network(Variable(torch.FloatTensor(1, 368))).data[0][0]
 
 
 if __name__ == "__main__":
 	'create network and verify it works with previous giraffe weights'
 	evalNet = EvalNet()
 	# verification: load weights and get output
-	evalNet = load_giraffe_weights(evalNet)
-	forward_pass(torch.FloatTensor(1, 368), evalNet)
+	#load_giraffe_weights(evalNet)
+	#forward_pass(torch.FloatTensor(1, 368), evalNet)
+	print forward_test(evalNet)
 
 	# save weights
 	#torch.save(evalNet.state_dict(), "weights.t7")
-
-	# TODO:
-	# investigate GPU
-	# bind to C++
