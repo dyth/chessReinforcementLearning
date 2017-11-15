@@ -128,127 +128,93 @@ void Initialize()
 
 int main(int argc, char **argv)
 {
+	// initialise both networks and backend
 	Initialize();
-
 	ANNEvaluator evaluator;
-
 	ANNMoveEvaluator mevaluator(evaluator);
-
 	InitializeNetworks(evaluator, mevaluator);
-
 	Backend backend;
 
 	// if eval.t7 exists, use the ANN evaluator
 	// if both eval.t7 and meval.t7 exist, use the ANN move evaluator
 
-	if (!FileReadable(EvalNetFilename) && argc == 1)
-	{
-		// in normal playing mode (giraffe run without argument), we should
-		// refuse to run without the net files
+	// do not run if no net files
+	if (!FileReadable(EvalNetFilename) && argc == 1) {
 		std::cout << "tellusererror " << EvalNetFilename << " not found in the working directory. Aborting." << std::endl;
 		return 0;
 	}
 
-	// if readable, create evaluation network
-	// if movenet, then pass evaluation network into movenet
-	// otherwise, use static evaluator functions
-	if (FileReadable(EvalNetFilename))
-	{
+	if (FileReadable(EvalNetFilename)) {
+		// if readable, create evaluation network
 		backend.SetEvaluator(&evaluator);
-
 		std::cout << "# Using ANN evaluator" << std::endl;
-
-		if (FileReadable(MoveEvalNetFilename))
-		{
+		// if movenet, then pass evaluation network into movenet
+		if (FileReadable(MoveEvalNetFilename)) {
 			std::cout << "# Using ANN move evaluator" << std::endl;
 			backend.SetMoveEvaluator(&mevaluator);
-		}
-		else
-		{
+		} else {
 			std::cout << "# Using static move evaluator" << std::endl;
 			backend.SetMoveEvaluator(&gStaticMoveEvaluator);
 		}
-	}
-	else
-	{
+	} else {
+		// otherwise, use static evaluator functions
 		std::cout << "# Using static evaluator" << std::endl;
 		std::cout << "# Using static move evaluator" << std::endl;
-
 		backend.SetEvaluator(&Eval::gStaticEvaluator);
 		backend.SetMoveEvaluator(&gStaticMoveEvaluator);
 	}
 
 	// first we handle special operation modes
 	// TDL = Temporal Difference Learning
-	if (argc >= 2 && std::string(argv[1]) == "tdl")
-	{
-		if (argc < 4)
-		{
+	if (argc >= 2 && std::string(argv[1]) == "tdl") {
+		if (argc < 4) {
 			std::cout << "Usage: " << argv[0] << " tdl positions sts_filename" << std::endl;
 			return 0;
 		}
-
 		Learn::TDL(argv[2], argv[3]);
-
 		return 0;
-	}
-	else if (argc >= 2 && std::string(argv[1]) == "conv")
-	{
-		if (argc < 3)
-		{
+	} else if (argc >= 2 && std::string(argv[1]) == "conv") {
+		if (argc < 3) {
 			std::cout << "Usage: " << argv[0] << " conv FEN" << std::endl;
 			return 0;
 		}
 
 		std::stringstream ss;
-
-		for (int i = 2; i < argc; ++i)
-		{
+		for (int i = 2; i < argc; ++i) {
 			ss << argv[i] << ' ';
 		}
 
 		Board b(ss.str());
-
 		std::vector<FeaturesConv::FeatureDescription> ret;
 		FeaturesConv::ConvertBoardToNN(b, ret);
 
-		for (auto &fd : ret)
-		{
+		for (auto &fd : ret) {
 			std::cout << fd.ToString() << std::endl;
 		}
 
 		return 0;
-	}
-	else if (argc >= 2 && std::string(argv[1]) == "mconv")
-	{
-		if (argc < 3)
-		{
+		
+	} else if (argc >= 2 && std::string(argv[1]) == "mconv") {
+		if (argc < 3) {
 			std::cout << "Usage: " << argv[0] << " mconv FEN" << std::endl;
 			return 0;
 		}
 
 		std::stringstream ss;
 
-		for (int i = 2; i < argc; ++i)
-		{
+		for (int i = 2; i < argc; ++i) {
 			ss << argv[i] << ' ';
 		}
 
 		Board b(ss.str());
-
 		MoveList moves;
 		b.GenerateAllLegalMoves<Board::ALL>(moves);
-
 		NNMatrixRM ret;
-
 		FeaturesConv::ConvertMovesInfo convInfo;
-
 		FeaturesConv::ConvertMovesToNN(b, convInfo, moves, ret);
 
-		for (int64_t row = 0; row < ret.rows(); ++row)
-		{
-			for (int64_t col = 0; col < ret.cols(); ++col)
-			{
+		for (int64_t row = 0; row < ret.rows(); ++row) {
+			for (int64_t col = 0; col < ret.cols(); ++col) {
 				std::cout << ret(row, col) << ' ';
 			}
 			std::cout << std::endl;
@@ -257,8 +223,7 @@ int main(int argc, char **argv)
 		return 0;
 	}
 	// bench is benchmark?
-	else if (argc >= 2 && std::string(argv[1]) == "bench")
-	{
+	else if (argc >= 2 && std::string(argv[1]) == "bench") {
 		double startTime = CurrentTime();
 
 		static const NodeBudget BenchNodeBudget = 64*1024*1024;
@@ -421,6 +386,7 @@ int main(int argc, char **argv)
 
 		return 0;
 	}
+	// train move evaluator
 	else if (argc >= 2 && std::string(argv[1]) == "train_move_eval")
 	{
 		if (argc < 4)
@@ -494,30 +460,22 @@ int main(int argc, char **argv)
 		return 0;
 	}
 	// play on xboard?
-	else if (argc >= 2 && std::string(argv[1]) == "move_stats")
-	{
-		if (argc < 3)
-		{
+	else if (argc >= 2 && std::string(argv[1]) == "move_stats") {
+		if (argc < 3) {
 			std::cout << "Usage: " << argv[0] << " move_stats <labeled FEN>" << std::endl;
 			return 0;
 		}
-
 		MoveStats::ProcessStats(argv[2]);
-
 		return 0;
 	}
 
 	std::ifstream initFile(InitFileName);
 
-	while (true)
-	{
+	while (true) {
 		std::string lineStr;
-		if (std::getline(initFile, lineStr))
-		{
+		if (std::getline(initFile, lineStr)) {
 			std::cout << "# From init file: " << lineStr << std::endl;
-		}
-		else
-		{
+		} else {
 			std::getline(std::cin, lineStr);
 		}
 
@@ -528,16 +486,13 @@ int main(int argc, char **argv)
 		line >> cmd;
 
 		if (cmd == "xboard") {} // ignore since we only support xboard mode anyways
-		else if (cmd == "protover")
-		{
+		else if (cmd == "protover") {
 			int32_t ver;
 			line >> ver;
 
-			if (ver >= 2)
-			{
+			if (ver >= 2) {
 				std::string name = "Giraffe";
-				if (gVersion != "")
-				{
+				if (gVersion != "") {
 					name += " ";
 					name += gVersion;
 				}
@@ -553,53 +508,39 @@ int main(int argc, char **argv)
 		}
 		else if (cmd == "accepted") {}
 		else if (cmd == "rejected") {}
-		else if (cmd == "new")
-		{
+		else if (cmd == "new") {
 			backend.NewGame();
 			backend.SetMaxDepth(0);
-		}
-		else if (cmd == "setboard")
-		{
+		} else if (cmd == "setboard") {
 			std::string fen;
 			std::getline(line, fen);
 			backend.SetBoard(fen);
-		}
-		else if (cmd == "quit")
-		{
+		} else if (cmd == "quit") {
 			break;
-		}
-		else if (cmd == "random") {}
-		else if (cmd == "force")
-		{
+		} else if (cmd == "random") {}
+		else if (cmd == "force") {
 			backend.Force();
 		}
-		else if (cmd == "go")
-		{
+		else if (cmd == "go") {
 			backend.Go();
 		}
-		else if (cmd == "level")
-		{
+		else if (cmd == "level") {
 			int32_t movesPerPeriod;
-
 			double base;
-
 			// base is a little complicated, because it can either be minutes or minutes:seconds
 			// so we read into a string first before figuring out what to do with it
 			std::string baseStr;
-
 			double inc;
 
 			line >> movesPerPeriod;
 			line >> baseStr;
 			line >> inc;
 
-			if (baseStr.find(':') == std::string::npos)
-			{
+			if (baseStr.find(':') == std::string::npos) {
 				sscanf(baseStr.c_str(), "%lf", &base);
 				base *= 60.0;
 			}
-			else
-			{
+			else {
 				double minutes;
 				double seconds;
 
@@ -698,7 +639,7 @@ int main(int argc, char **argv)
 			MoveList moves;
 			backend.GetBoard().GenerateAllLegalMoves<Board::ALL>(moves);
 
-			// Print legal moves and test the generator and parser while we are at it
+			// Print legal moves and test the generator and parser
 			// for (const auto &mv : moves)
 			// {
 			// 	std::string str = backend.GetBoard().MoveToAlg(mv, Board::SAN);

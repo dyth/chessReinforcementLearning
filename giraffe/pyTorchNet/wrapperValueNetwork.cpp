@@ -2,27 +2,24 @@
 #include <Python.h>
 
 
-void load_giraffe_weights(PyObject* functions, PyObject* evalNet)
 // load weights into evalNet
-{
+void load_giraffe_weights(PyObject* functions, PyObject* evalNet) {
 	PyObject* pyArgs = PyTuple_New(1);
     PyTuple_SetItem(pyArgs, 0, evalNet);
 	PyObject* py_lgr = PyDict_GetItemString(functions, "load_giraffe_weights");
     PyObject_CallObject(py_lgr, pyArgs);
 }
 
-void print_net_output(PyObject* functions, PyObject* evalNet)
-{
+// forward pass
+double forward(PyObject* functions, PyObject* evalNet) {
 	PyObject* pyArgs = PyTuple_New(1);
     PyTuple_SetItem(pyArgs, 0, evalNet);
 	PyObject* py_ft = PyDict_GetItemString(functions, "forward_test");
     PyObject* output = PyObject_CallObject(py_ft, pyArgs);
-	double d = PyFloat_AsDouble(output);
-	std::cout << "network outputs: " << std::to_string(d) << std::endl;
+	return PyFloat_AsDouble(output);
 }
 
-int main(int argc, char *argv[])
-{
+int main(int argc, char *argv[]) {
 	// Initialize Python interpreter and pass any state variables
     Py_Initialize();
 	PySys_SetArgv(argc, argv);
@@ -33,11 +30,11 @@ int main(int argc, char *argv[])
 	PyObject* EvalNet = PyDict_GetItemString(functions, "EvalNet");
 	PyObject* evalNet = PyObject_CallObject(EvalNet, nullptr);
 	
-	print_net_output(functions, evalNet);
+	double d = forward(functions, evalNet);
+	std::cout << "network outputs: " << std::to_string(d) << std::endl;
 	load_giraffe_weights(functions, evalNet);
-	print_net_output(functions, evalNet);
+	d = forward(functions, evalNet);
+	std::cout << "network outputs: " << std::to_string(d) << std::endl;
 	
 	Py_Finalize();
 }
-
-

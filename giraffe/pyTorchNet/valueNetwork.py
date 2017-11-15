@@ -82,8 +82,9 @@ if __name__ == "__main__":
 	'create network and verify it works with previous giraffe weights'
 	evalNet = EvalNet()
 	# verification: load weights and get output
-	#load_giraffe_weights(evalNet)
-	#forward_pass(torch.FloatTensor(1, 368), evalNet)
+	print forward_test(evalNet)
+	load_giraffe_weights(evalNet)
+	forward_pass(torch.FloatTensor(1, 368), evalNet)
 	print forward_test(evalNet)
 
 	# save weights

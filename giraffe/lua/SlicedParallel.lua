@@ -1,3 +1,4 @@
+-- user defined module for inputs / outputs
 local SlicedParallel, parent = torch.class('nn.SlicedParallel', 'nn.Container')
 
 -- slices is a table of sizes
