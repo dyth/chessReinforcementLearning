@@ -19,7 +19,7 @@ double forward(PyObject* functions, PyObject* evalNet) {
 	return PyFloat_AsDouble(output);
 }
 
-int main(int argc, char *argv[]) {
+/*int main(int argc, char *argv[]) {
 	// Initialize Python interpreter and pass any state variables
     Py_Initialize();
 	PySys_SetArgv(argc, argv);
@@ -37,4 +37,4 @@ int main(int argc, char *argv[]) {
 	std::cout << "network outputs: " << std::to_string(d) << std::endl;
 	
 	Py_Finalize();
-}
+	}*/

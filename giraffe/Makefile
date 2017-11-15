@@ -21,7 +21,7 @@ HGVERSION:= $(shell hg parents --template '{node|short}')
 
 CXXFLAGS_BASE = \
 	-Wall -Wextra -Wno-unused-function -std=gnu++11 -mtune=native -ffast-math \
-	-pthread -fopenmp -DHGVERSION="\"${HGVERSION}\""
+	-pthread -fopenmp -I/usr/include/python2.7 -DHGVERSION="\"${HGVERSION}\""
 
 # we will then extend this one with optimization flags
 CXXFLAGS:= $(CXXFLAGS_BASE)
@@ -29,7 +29,7 @@ CXXFLAGS:= $(CXXFLAGS_BASE)
 CXXFLAGS_DEP = \
 	-std=gnu++11
 
-LDFLAGS=-L. -Lgtb -lm -lgtb
+LDFLAGS=-L. -Lgtb -lm -lgtb -lpython2.7
 
 ifeq ($(HAS_TORCH), 1)
 	LDFLAGS += -L $(TORCH_DIR)/lib

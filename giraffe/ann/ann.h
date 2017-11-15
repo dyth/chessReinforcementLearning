@@ -260,12 +260,11 @@ private:
 	mutable std::mutex m_mutex;
 };
 
+// do a forward pass of the network
 template <typename Derived>
-float ANN::ForwardSingle(const Eigen::MatrixBase<Derived> &v)
-{
+float ANN::ForwardSingle(const Eigen::MatrixBase<Derived> &v) {
 #if 1
-	if (!m_eigenAnnUpToDate)
-	{
+	if (!m_eigenAnnUpToDate) {
 		m_eigenAnn.FromString(ToString());
 		m_eigenAnnUpToDate = true;
 	}
@@ -274,8 +273,7 @@ float ANN::ForwardSingle(const Eigen::MatrixBase<Derived> &v)
 #else
 	assert(!m_eigenOnly);
 
-	if (!m_inputTensorSingle)
-	{
+	if (!m_inputTensorSingle) {
 		m_inputTensorSingle = THFloatTensor_newWithSize1d(v.size());
 		THFloatTensor_retain(m_inputTensorSingle);
 		LuaFunctionCall<1, 0> registerCall(m_luaState, "register_input_tensor");
@@ -291,6 +289,7 @@ float ANN::ForwardSingle(const Eigen::MatrixBase<Derived> &v)
 	return torchOutput;
 #endif
 }
+
 
 template <typename Derived>
 NNMatrixRM *ANN::ForwardMultiple(const Eigen::MatrixBase<Derived> &x, bool useTorch)
