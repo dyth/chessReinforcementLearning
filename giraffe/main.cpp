@@ -19,6 +19,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+#include <Python.h>
 #include "thread_wrapper.h"
 #include "mutex_wrapper.h"
 
@@ -55,19 +56,15 @@ std::string gVersion;
 
 
 // print Giraffe version to stdout
-void GetGiraffeVersion()
-{
+void GetGiraffeVersion() {
 	std::ifstream verFile("version.txt");
 
-	if (verFile.is_open())
-	{
+	if (verFile.is_open()) {
 		std::getline(verFile, gVersion);
-
 		std::cout << "# Version: " << gVersion << std::endl;
 	}
 #ifdef HGVERSION
-	else
-	{
+	else {
 		gVersion = HGVERSION;
 		std::cout << "# Version: " << HGVERSION << std::endl;
 	}
@@ -75,19 +72,14 @@ void GetGiraffeVersion()
 }
 
 // create network 
-void InitializeNetworks(ANNEvaluator &evaluator, ANNMoveEvaluator &mevaluator)
-{
+void InitializeNetworks(ANNEvaluator &evaluator, ANNMoveEvaluator &mevaluator) {
 	std::ifstream evalNet(EvalNetFilename);
-
-	if (evalNet)
-	{
+	if (evalNet) {
 		evaluator.Deserialize(EvalNetFilename);
 	}
 
 	std::ifstream mevalNet(MoveEvalNetFilename);
-
-	if (mevalNet)
-	{
+	if (mevalNet) {
 		mevaluator.Deserialize(MoveEvalNetFilename);
 	}
 
@@ -126,8 +118,11 @@ void Initialize()
 }
 
 
-int main(int argc, char **argv)
-{
+int main(int argc, char *argv[]) {
+	// start a python interpreter and pass arguments
+	Py_Initialize();
+	PySys_SetArgv(argc, argv);
+	
 	// initialise both networks and backend
 	Initialize();
 	ANNEvaluator evaluator;
@@ -797,4 +792,7 @@ int main(int argc, char **argv)
 
 	backend.Quit();
 	GTB::DeInit();
+
+	// finalize and quit the python interpreter
+	Py_Finalize();
 }

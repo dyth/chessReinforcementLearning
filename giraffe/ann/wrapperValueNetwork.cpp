@@ -19,6 +19,7 @@ double forward(PyObject* functions, PyObject* evalNet) {
 	return PyFloat_AsDouble(output);
 }
 
+// start a Python Interpreter and network
 /*int main(int argc, char *argv[]) {
 	// Initialize Python interpreter and pass any state variables
     Py_Initialize();

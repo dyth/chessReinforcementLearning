@@ -13,7 +13,7 @@
 	
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+
 
 #ifndef ANN_H
 #define ANN_H
@@ -236,8 +236,8 @@ private:
 
 	void CheckFreeTensor_(THFloatTensor *&tensor);
 
-	PyObject *evalNet = nullptr;
-	PyObject *functions = nullptr;
+	PyObject* evalNet;
+	PyObject* functions;
 
 	bool m_eigenOnly = false;
 	bool m_eigenAnnUpToDate = false;
@@ -260,11 +260,31 @@ private:
 // do a forward pass of the network
 template <typename Derived>
 float ANN::ForwardSingle(const Eigen::MatrixBase<Derived> &v) {
-	PyObject* pyArgs = PyTuple_New(1);
-    PyTuple_SetItem(pyArgs, 0, evalNet);
-	PyObject* py_ft = PyDict_GetItemString(functions, "forward_test");
-    PyObject* output = PyObject_CallObject(py_ft, pyArgs);
-	return (float) PyFloat_AsDouble(output);
+#if 1
+	if (!m_eigenAnnUpToDate) {
+		m_eigenAnn.FromString(ToString());
+		m_eigenAnnUpToDate = true;
+	}
+
+	return m_eigenAnn.ForwardSingle(v);
+#else
+	assert(!m_eigenOnly);
+
+	if (!m_inputTensorSingle) {
+		m_inputTensorSingle = THFloatTensor_newWithSize1d(v.size());
+		THFloatTensor_retain(m_inputTensorSingle);
+		LuaFunctionCall<1, 0> registerCall(m_luaState, "register_input_tensor");
+		registerCall.PushTensor(m_inputTensorSingle);
+		registerCall.Call();
+	}
+
+	Eigen::Map<NNVector> tensorMap(THFloatTensor_data(m_inputTensorSingle), v.size());
+	tensorMap = v;
+	LuaFunctionCall<0, 1> forwardCall(m_luaState, "forward_single");
+	forwardCall.Call();
+	float torchOutput = forwardCall.PopNumber();
+	return torchOutput;
+#endif
 }
 
 
@@ -309,3 +329,4 @@ NNMatrixRM *ANN::ForwardMultiple(const Eigen::MatrixBase<Derived> &x, bool useTo
 #endif // HAS_TORCH
 
 #endif // ANN_H
+*/

@@ -76,3 +76,14 @@ g = generateGraph(net, input, graphOpts)
 * Compile test python + C++ bridge: `g++ -Wall -I/usr/include/python2.7 -std=gnu++0x pythonWrapper.cpp -lpython2.7`
 * Compile test python + C++ bridge: `g++ -Wall -I/usr/include/python2.7 -std=gnu++0x wrapperValueNetwork.cpp -lpython2.7`
 
+### 2017.11.15
+
+* add python interpreter start and end to the main function
+* ```
+if (!valueNetwork) {
+	PyErr_Print();
+	exit(1);
+}```
+
+
+

@@ -1,0 +1,88 @@
+locale = en_GB.UTF-8
+recognized 'normal' (-1) as variant normal
+recognized 'normal' (-1) as variant normal
+recognized 'normal' (-1) as variant normal
+shuffleOpenings = 0
+shuffleOpenings = 0
+Version: xboard 4.8.0 + fairymax ()
+Reset(1, 0) from gameMode 0
+recognized 'normal' (-1) as variant normal
+GameEnds(0, (null), 2)
+shuffleOpenings = 0
+StartChildProcess (dir=".") fairymax
+166 >first : xboard
+protover 2
+228 <first : tellics say     Fairy-Max 4.8V
+228 <first : tellics say     by H.G. Muller
+228 <first : tellics say Gothic Chess is protected by U.S. patent #6,481,716 by Ed Trice.
+228 <first : tellics say Falcon Chess is protected by U.S. patent #5,690,334 by George W. Duke
+229 <first : feature myname="Fairy-Max 4.8V"
+229 >first : accepted myname
+229 <first : feature memory=1
+229 >first : accepted memory
+229 <first : feature setboard=0 xedit=1 ping=1 done=0
+229 >first : accepted setboard
+229 >first : accepted xedit
+229 >first : accepted ping
+229 >first : accepted done
+229 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,fairy"
+229 >first : accepted variants
+229 <first : feature option="Resign -check 0"
+229 >first : accepted option
+229 <first : feature option="Resign Threshold -spin 800 200 1200"
+229 >first : accepted option
+229 <first : feature option="Claim draw after -spin 50 0 200"
+229 >first : accepted option
+229 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
+229 >first : accepted option
+229 <first : feature option="Multi-PV Margin -spin 0 0 1000"
+229 >first : accepted option
+229 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers"
+229 >first : accepted option
+229 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
+229 >first : accepted option
+229 <first : feature option="Dummy Slider Example -slider 20 0 100"
+229 >first : accepted option
+229 <first : feature option="Dummy String Example -string happy birthday!"
+229 >first : accepted option
+229 <first : feature option="Dummy Path Example -path ."
+229 >first : accepted option
+229 <first : feature option="Info -button"
+229 >first : accepted option
+229 <first : feature option="Clear Hash -button"
+229 >first : accepted option
+229 <first : feature done=1
+229 >first : accepted done
+230 >first : memory 68
+230 >first : new
+random
+230 >first : level 40 5 0
+230 >first : post
+230 >first : hard
+230 >first : ping 1
+253 <first : pong 1
+6201 >first : quit
+Unload first
+StartChildProcess (dir="/home/dyth/Documents/chessReinforcementLearning/giraffe") /home/dyth/Documents/chessReinforcementLearning/giraffe/giraffe
+6204 >first : xboard
+protover 2
+6243 <first : # Using 12 OpenMP thread(s)
+6243 <first : # Version: 
+6243 <first : # Running in release mode
+recognized 'normal' (-1) as variant normal
+16204 >first : new
+random
+16204 >first : level 40 5 0
+16204 >first : post
+16204 >first : hard
+nps: w=-1, b=-1
+nps: w=-1, b=-1
+42584 >first : time 30000
+42586 >first : otim 30000
+book hit = (NULL)
+42587 >first : e2e3
+GameEnds(27, Error writing to first chess program, 2)
+Interrupting first
+45112 >first : result 0-1 {Error writing to first chess program}
+45112 >first : force
+45112 >first : quit

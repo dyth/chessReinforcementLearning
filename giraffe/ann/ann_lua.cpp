@@ -13,14 +13,13 @@
 
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
+
 
 #ifdef HAS_TORCH
 
 #include "ann.h"
-#include <iostream>
+
 #include "random_device.h"
-#include <Python.h>
 
 ANN::ANN(bool eigenOnly) : m_eigenOnly(eigenOnly) {
 	if (!m_eigenOnly) {
@@ -33,25 +32,22 @@ ANN::ANN(const std::string &networkFile) {
 	Load(networkFile);
 }
 
-
 ANN::ANN(const std::string &functionName, int numInputs) {
 	Init_();
-	/*Init_();
 
 	LuaFunctionCall<1, 0> makeCall(m_luaState, functionName.c_str());
 	makeCall.PushInt(numInputs);
-	makeCall.Call();*/
+	makeCall.Call();
 }
 
 ANN::ANN(const std::string &functionName, int numInputs, const std::vector<int64_t> &slices, const std::vector<float> &reductionFactors) {
 	Init_();
-	/*Init_();
 
 	LuaFunctionCall<3, 0> makeCall(m_luaState, functionName.c_str());
 	makeCall.PushInt(numInputs);
 	makeCall.PushInt64Vector(slices);
 	makeCall.PushFloatVector(reductionFactors);
-	makeCall.Call();*/
+	makeCall.Call();
 }
 
 void ANN::UpdateWithEligibilityTraces(NNMatrixRM &x_before, NNMatrixRM &err) {
@@ -113,12 +109,16 @@ float ANN::Train(const NNMatrixRM &x, const NNMatrixRM &t) {
 	return loss;
 }
 
-// load filename into python giraffe
 void ANN::Load(const std::string &filename) {
-	PyObject* pyArgs = PyTuple_New(1);
-    PyTuple_SetItem(pyArgs, 0, evalNet);
-	PyObject* py_lgr = PyDict_GetItemString(functions, "load_giraffe_weights");
-    PyObject_CallObject(py_lgr, pyArgs);
+	assert(!m_eigenOnly);
+	LuaFunctionCall<1, 0> loadCall(m_luaState, "load");
+	loadCall.PushString(filename);
+	loadCall.Call();
+
+	m_eigenAnn.FromString(ToString());
+	m_eigenAnnUpToDate = true;
+
+	SetIsTraining_(false);
 }
 
 void ANN::Save(const std::string &filename) {
@@ -160,21 +160,14 @@ ANN::~ANN() {
 	}
 }
 
-
-// initialize pyobject representing Giraffe
 void ANN::Init_() {
-	// add ann to list of all paths
-	PyObject *sys = PyImport_ImportModule("sys");
-	PyObject *path = PyObject_GetAttrString(sys, "path");
-	PyList_Append(path, PyString_FromString("./ann"));
-	//  create evalNet object
-	PyObject* moduleName = PyString_FromString("valueNetwork");
-	PyObject* valueNetwork = PyImport_Import(moduleName);
-	functions = PyModule_GetDict(valueNetwork);
-	PyObject* EvalNet = PyDict_GetItemString(functions, "EvalNet");
-	evalNet = PyObject_CallObject(EvalNet, nullptr);
+	m_luaState = luaL_newstate();
+	luaL_openlibs(m_luaState);
+	if (luaL_dofile(m_luaState, "lua/network.lua") != 0) {
+		std::cerr << "Failed to load lua/network.lua: " << lua_tostring(m_luaState, -1) << std::endl;
+		assert(false);
+	}
 }
-
 
 void ANN::SetIsTraining_(bool training) {
 	LuaFunctionCall<1, 0> isTrainingCall(m_luaState, "set_is_training");
@@ -190,3 +183,4 @@ void ANN::CheckFreeTensor_(THFloatTensor *&tensor) {
 }
 
 #endif
+*/
