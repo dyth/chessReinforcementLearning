@@ -122,7 +122,8 @@ int main(int argc, char *argv[]) {
 	// start a python interpreter and pass arguments
 	Py_Initialize();
 	PySys_SetArgv(argc, argv);
-	
+
+
 	// initialise both networks and backend
 	Initialize();
 	ANNEvaluator evaluator;
