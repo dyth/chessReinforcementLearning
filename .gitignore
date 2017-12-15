@@ -7,3 +7,6 @@
 # no network weights
 *.t7
 *.fen
+
+# no compiled file
+./giraffe/giraffe
