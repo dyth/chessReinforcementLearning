@@ -7,6 +7,7 @@ from torch.autograd import Variable
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
+import numpy as np
 
 from weightsToPyTorch import *
 
@@ -68,14 +69,9 @@ def load_giraffe_weights(network):
 	network.load_state_dict(read_parameters(filename))
 
 
-def forward_pass(x, network):
+def forward_pass(network, x):
 	'do a forward pass of the network'
-	return network(Variable(x))
-
-
-def forward_test(network):
-	'do a forward pass of the network'
-	return network(Variable(torch.FloatTensor(1, 368))).data[0][0]
+	return network(Variable(np.array(x))).data[0][0]
 
 
 if __name__ == "__main__":
