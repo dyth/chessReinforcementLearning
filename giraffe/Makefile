@@ -21,7 +21,7 @@ endif
 
 CXXFLAGS_BASE = \
 	-Wall -Wextra -Wno-unused-function -std=gnu++11 -mtune=native -ffast-math \
-	-pthread -fopenmp -I/usr/include/python2.7 #-DHGVERSION="\"${HGVERSION}\""
+	-pthread -fopenmp -fpermissive -I/usr/include/python2.7 #-DHGVERSION="\"${HGVERSION}\""
 
 # we will then extend this one with optimization flags
 CXXFLAGS:= $(CXXFLAGS_BASE)

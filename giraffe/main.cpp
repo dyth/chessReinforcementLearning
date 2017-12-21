@@ -48,6 +48,9 @@
 
 #include "Eigen/Dense"
 
+#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
+#include "/home/dyth/.local/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h"
+
 const std::string EvalNetFilename = "eval.t7";
 const std::string MoveEvalNetFilename = "meval.t7";
 const std::string InitFileName = "init.txt";
@@ -122,7 +125,8 @@ int main(int argc, char *argv[]) {
 	// start a python interpreter and pass arguments
 	Py_Initialize();
 	PySys_SetArgv(argc, argv);
-
+	import_array();
+	
 
 	// initialise both networks and backend
 	Initialize();

@@ -161,12 +161,14 @@ ANN::~ANN() {
 }
 
 
-// initialize pyobject representing Giraffe
-void ANN::Init_() {
+// initialize evaluator network
+void ANN::Init_()
+{
 	// add ann to list of all paths
 	PyObject *sys = PyImport_ImportModule("sys");
 	PyObject *path = PyObject_GetAttrString(sys, "path");
 	PyList_Append(path, PyString_FromString("./ann"));
+	
 	//  create evalNet object
 	PyObject* moduleName = PyString_FromString("valueNetwork");
 	PyObject* valueNetwork = PyImport_Import(moduleName);
@@ -188,5 +190,27 @@ void ANN::CheckFreeTensor_(THFloatTensor *&tensor) {
 		tensor = nullptr;
 	}
 }
+
+// forward pass of the network
+float ANN::ForwardSingle(std::vector<float> &v)
+{
+	// eigen array to numpy array
+	PyObject* inputLayer = PyList_New(v.size());
+	for (unsigned int i = 0; i < v.size(); i++) {
+		PyObject *num = PyFloat_FromDouble((double) v[i]);
+		PyList_SET_ITEM(inputLayer, i, num);
+	}
+
+	// create argument tuple
+	PyObject* pyArgs = PyTuple_New(2);
+    PyTuple_SetItem(pyArgs, 0, evalNet);
+    PyTuple_SetItem(pyArgs, 1, inputLayer);
+	
+	// forward_test(network, inputLayer)
+	PyObject* py_fp = PyDict_GetItemString(functions, "forward_pass");
+    PyObject* output = PyObject_CallObject(py_fp, pyArgs);
+	return (float) PyFloat_AsDouble(output);
+}
+
 
 #endif

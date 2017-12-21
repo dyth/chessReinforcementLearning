@@ -71,7 +71,7 @@ def load_giraffe_weights(network):
 
 def forward_pass(network, x):
 	'do a forward pass of the network'
-	return network(Variable(np.array(x))).data[0][0]
+	return network(Variable(x)).data[0][0]
 
 
 if __name__ == "__main__":

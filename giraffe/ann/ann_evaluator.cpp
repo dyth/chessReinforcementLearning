@@ -169,10 +169,10 @@ Score ANNEvaluator::EvaluateForWhiteImpl(Board &b, Score /*lowerBound*/, Score /
 	FeaturesConv::ConvertBoardToNN(b, m_convTmp);
 
 	// we have to map every time because the vector's buffer could have moved
-	Eigen::Map<NNVector> mappedVec(&m_convTmp[0], 1, m_convTmp.size());
+	//Eigen::Map<NNVector> mappedVec(&m_convTmp[0], 1, m_convTmp.size());
+	//float annOut = m_ann.ForwardSingle(mappedVec);
 
-	float annOut = m_ann.ForwardSingle(mappedVec);
-
+	float annOut = m_ann.ForwardSingle(m_convTmp);
 	Score nnRet = annOut * EvalFullScale;
 
 	HashStore_(b, nnRet);
@@ -184,9 +184,9 @@ void ANNEvaluator::PrintDiag(Board &board)
 {
 	FeaturesConv::ConvertBoardToNN(board, m_convTmp);
 
-	Eigen::Map<NNVector> mappedVec(&m_convTmp[0], 1, m_convTmp.size());
-
-	std::cout << "Val: " << m_ann.ForwardSingle(mappedVec) << std::endl;
+	//Eigen::Map<NNVector> mappedVec(&m_convTmp[0], 1, m_convTmp.size());
+	//std::cout << "Val: " << m_ann.ForwardSingle(mappedVec) << std::endl;
+	std::cout << "Val: " << m_ann.ForwardSingle(m_convTmp) << std::endl;
 }
 
 void ANNEvaluator::InvalidateCache()

@@ -10,79 +10,113 @@ recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
 StartChildProcess (dir=".") fairymax
-166 >first : xboard
+223 >first : xboard
 protover 2
-228 <first : tellics say     Fairy-Max 4.8V
-228 <first : tellics say     by H.G. Muller
-228 <first : tellics say Gothic Chess is protected by U.S. patent #6,481,716 by Ed Trice.
-228 <first : tellics say Falcon Chess is protected by U.S. patent #5,690,334 by George W. Duke
-229 <first : feature myname="Fairy-Max 4.8V"
-229 >first : accepted myname
-229 <first : feature memory=1
-229 >first : accepted memory
-229 <first : feature setboard=0 xedit=1 ping=1 done=0
-229 >first : accepted setboard
-229 >first : accepted xedit
-229 >first : accepted ping
-229 >first : accepted done
-229 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,fairy"
-229 >first : accepted variants
-229 <first : feature option="Resign -check 0"
-229 >first : accepted option
-229 <first : feature option="Resign Threshold -spin 800 200 1200"
-229 >first : accepted option
-229 <first : feature option="Claim draw after -spin 50 0 200"
-229 >first : accepted option
-229 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
-229 >first : accepted option
-229 <first : feature option="Multi-PV Margin -spin 0 0 1000"
-229 >first : accepted option
-229 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers"
-229 >first : accepted option
-229 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
-229 >first : accepted option
-229 <first : feature option="Dummy Slider Example -slider 20 0 100"
-229 >first : accepted option
-229 <first : feature option="Dummy String Example -string happy birthday!"
-229 >first : accepted option
-229 <first : feature option="Dummy Path Example -path ."
-229 >first : accepted option
-229 <first : feature option="Info -button"
-229 >first : accepted option
-229 <first : feature option="Clear Hash -button"
-229 >first : accepted option
-229 <first : feature done=1
-229 >first : accepted done
-230 >first : memory 68
-230 >first : new
+295 <first : tellics say     Fairy-Max 4.8V
+295 <first : tellics say     by H.G. Muller
+295 <first : tellics say Gothic Chess is protected by U.S. patent #6,481,716 by Ed Trice.
+295 <first : tellics say Falcon Chess is protected by U.S. patent #5,690,334 by George W. Duke
+295 <first : feature myname="Fairy-Max 4.8V"
+295 >first : accepted myname
+295 <first : feature memory=1
+295 >first : accepted memory
+295 <first : feature setboard=0 xedit=1 ping=1 done=0
+295 >first : accepted setboard
+295 >first : accepted xedit
+295 >first : accepted ping
+295 >first : accepted done
+295 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,fairy"
+295 >first : accepted variants
+295 <first : feature option="Resign -check 0"
+295 >first : accepted option
+295 <first : feature option="Resign Threshold -spin 800 200 1200"
+295 >first : accepted option
+295 <first : feature option="Claim draw after -spin 50 0 200"
+295 >first : accepted option
+295 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
+295 >first : accepted option
+296 <first : feature option="Multi-PV Margin -spin 0 0 1000"
+296 >first : accepted option
+296 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers"
+296 >first : accepted option
+296 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
+296 >first : accepted option
+296 <first : feature option="Dummy Slider Example -slider 20 0 100"
+296 >first : accepted option
+296 <first : feature option="Dummy String Example -string happy birthday!"
+296 >first : accepted option
+296 <first : feature option="Dummy Path Example -path ."
+296 >first : accepted option
+296 <first : feature option="Info -button"
+296 >first : accepted option
+296 <first : feature option="Clear Hash -button"
+296 >first : accepted option
+296 <first : feature done=1
+296 >first : accepted done
+328 >first : memory 68
+328 >first : new
 random
-230 >first : level 40 5 0
-230 >first : post
-230 >first : hard
-230 >first : ping 1
-253 <first : pong 1
-6201 >first : quit
+328 >first : level 40 5 0
+328 >first : post
+328 >first : hard
+328 >first : ping 1
+Impossible move , type = 0
+380 <first : pong 1
+6439 >first : quit
 Unload first
 StartChildProcess (dir="/home/dyth/Documents/chessReinforcementLearning/giraffe") /home/dyth/Documents/chessReinforcementLearning/giraffe/giraffe
-6204 >first : xboard
+6441 >first : xboard
 protover 2
-6243 <first : # Using 12 OpenMP thread(s)
-6243 <first : # Version: 
-6243 <first : # Running in release mode
+6465 <first : # Using 12 OpenMP thread(s)
+6465 <first : # Running in release mode
+6711 <first : # GTBPath not set
+6747 <first : # Using ANN evaluator
+6747 <first : # Using static move evaluator
+6747 <first : feature ping=1 setboard=1 playother=0 san=0 usermove=1 time=1 draw=0 sigint=0 sigterm=0 reuse=1 analyze=1 myname="Giraffe" variants=normal colors=0 ics=0 name=0 pause=0 nps=0 debug=1 memory=0 smp=0 done=0
+6747 >first : accepted ping
+6747 >first : accepted setboard
+6747 >first : accepted playother
+6747 >first : accepted san
+6748 >first : accepted usermove
+6748 >first : accepted time
+6748 >first : accepted draw
+6748 >first : accepted sigint
+6748 >first : accepted sigterm
+6748 >first : accepted reuse
+6748 >first : accepted analyze
+6748 >first : accepted myname
+6748 >first : rejected variants
+6748 >first : accepted colors
+6748 >first : accepted ics
+6748 >first : accepted name
+6748 >first : accepted pause
+6748 >first : accepted nps
+6748 >first : accepted debug
+6748 >first : accepted memory
+6748 >first : accepted smp
+6748 >first : accepted done
+6748 <first : feature option="GaviotaTbPath -path ."
+6748 >first : accepted option
+6748 <first : feature done=1
+6748 >first : accepted done
 recognized 'normal' (-1) as variant normal
-16204 >first : new
+6749 >first : new
 random
-16204 >first : level 40 5 0
-16204 >first : post
-16204 >first : hard
+6749 >first : level 40 5 0
+6749 >first : post
+6749 >first : hard
+6749 >first : ping 1
+Impossible move , type = 0
+6750 <first : pong 1
 nps: w=-1, b=-1
 nps: w=-1, b=-1
-42584 >first : time 30000
-42586 >first : otim 30000
+8283 >first : time 30000
+8283 >first : otim 30000
 book hit = (NULL)
-42587 >first : e2e3
-GameEnds(27, Error writing to first chess program, 2)
-Interrupting first
-45112 >first : result 0-1 {Error writing to first chess program}
-45112 >first : force
-45112 >first : quit
+8283 >first : usermove 8283 >first : e2e3
+8363 <first : # Allocated 15, 30 seconds
+GameEnds(29, xboard exit, 2)
+83468 >first : result * {xboard exit}
+83468 >first : force
+83468 >first : ping 2
+83468 >first : quit
