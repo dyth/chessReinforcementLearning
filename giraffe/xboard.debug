@@ -4,119 +4,533 @@ recognized 'normal' (-1) as variant normal
 recognized 'normal' (-1) as variant normal
 shuffleOpenings = 0
 shuffleOpenings = 0
-Version: xboard 4.8.0 + fairymax ()
+Version: xboard 4.8.0 + giraffe ()
 Reset(1, 0) from gameMode 0
 recognized 'normal' (-1) as variant normal
 GameEnds(0, (null), 2)
 shuffleOpenings = 0
-StartChildProcess (dir=".") fairymax
-223 >first : xboard
+StartChildProcess (dir=".") ./giraffe
+154 >first : xboard
 protover 2
-295 <first : tellics say     Fairy-Max 4.8V
-295 <first : tellics say     by H.G. Muller
-295 <first : tellics say Gothic Chess is protected by U.S. patent #6,481,716 by Ed Trice.
-295 <first : tellics say Falcon Chess is protected by U.S. patent #5,690,334 by George W. Duke
-295 <first : feature myname="Fairy-Max 4.8V"
-295 >first : accepted myname
-295 <first : feature memory=1
-295 >first : accepted memory
-295 <first : feature setboard=0 xedit=1 ping=1 done=0
-295 >first : accepted setboard
-295 >first : accepted xedit
-295 >first : accepted ping
-295 >first : accepted done
-295 <first : feature variants="normal,nocastle,shatranj,asean,makruk,cambodian,ai-wok,courier,knightmate,capablanca,gothic,falcon,cylinder,berolina,super,seirawan,spartan,great,light-brigade,king-of-the-hill,bifurcator,team-mate,fairy"
-295 >first : accepted variants
-295 <first : feature option="Resign -check 0"
-295 >first : accepted option
-295 <first : feature option="Resign Threshold -spin 800 200 1200"
-295 >first : accepted option
-295 <first : feature option="Claim draw after -spin 50 0 200"
-295 >first : accepted option
-295 <first : feature option="Ini File -file /usr/share/games/fairymax/fmax.ini"
-295 >first : accepted option
-296 <first : feature option="Multi-PV Margin -spin 0 0 1000"
-296 >first : accepted option
-296 <first : feature option="Variant fairy selects -combo FIDE-Clobberers /// Clobberers-FIDE /// FIDE-Nutters /// Nutters-FIDE /// Clobberers-Nutters /// Nutters-Clobberers /// FIDE-Rookies /// Rookies-FIDE /// Clobberers-Rookies /// Rookies-Clobberers"
-296 >first : accepted option
-296 <first : feature option="Makruk rules -combo makruk /// Cambodian /// Ai-wok"
-296 >first : accepted option
-296 <first : feature option="Dummy Slider Example -slider 20 0 100"
-296 >first : accepted option
-296 <first : feature option="Dummy String Example -string happy birthday!"
-296 >first : accepted option
-296 <first : feature option="Dummy Path Example -path ."
-296 >first : accepted option
-296 <first : feature option="Info -button"
-296 >first : accepted option
-296 <first : feature option="Clear Hash -button"
-296 >first : accepted option
-296 <first : feature done=1
-296 >first : accepted done
-328 >first : memory 68
-328 >first : new
+171 <first : # Using 12 OpenMP thread(s)
+171 <first : # Running in release mode
+2047 <first : # GTBPath not set
+2079 <first : # Using ANN evaluator
+2079 <first : # Using static move evaluator
+2079 <first : feature ping=1 setboard=1 playother=0 san=0 usermove=1 time=1 draw=0 sigint=0 sigterm=0 reuse=1 analyze=1 myname="Giraffe" variants=normal colors=0 ics=0 name=0 pause=0 nps=0 debug=1 memory=0 smp=0 done=0
+2079 >first : accepted ping
+2079 >first : accepted setboard
+2079 >first : accepted playother
+2079 >first : accepted san
+2079 >first : accepted usermove
+2079 >first : accepted time
+2079 >first : accepted draw
+2079 >first : accepted sigint
+2079 >first : accepted sigterm
+2079 >first : accepted reuse
+2079 >first : accepted analyze
+2079 >first : accepted myname
+2079 >first : rejected variants
+2079 >first : accepted colors
+2079 >first : accepted ics
+2079 >first : accepted name
+2079 >first : accepted pause
+2079 >first : accepted nps
+2079 >first : accepted debug
+2079 >first : accepted memory
+2079 >first : accepted smp
+2079 >first : accepted done
+2079 <first : feature option="GaviotaTbPath -path ."
+2079 >first : accepted option
+2079 <first : feature done=1
+2079 >first : accepted done
+2080 >first : new
 random
-328 >first : level 40 5 0
-328 >first : post
-328 >first : hard
-328 >first : ping 1
-Impossible move , type = 0
-380 <first : pong 1
-6439 >first : quit
-Unload first
-StartChildProcess (dir="/home/dyth/Documents/chessReinforcementLearning/giraffe") /home/dyth/Documents/chessReinforcementLearning/giraffe/giraffe
-6441 >first : xboard
-protover 2
-6465 <first : # Using 12 OpenMP thread(s)
-6465 <first : # Running in release mode
-6711 <first : # GTBPath not set
-6747 <first : # Using ANN evaluator
-6747 <first : # Using static move evaluator
-6747 <first : feature ping=1 setboard=1 playother=0 san=0 usermove=1 time=1 draw=0 sigint=0 sigterm=0 reuse=1 analyze=1 myname="Giraffe" variants=normal colors=0 ics=0 name=0 pause=0 nps=0 debug=1 memory=0 smp=0 done=0
-6747 >first : accepted ping
-6747 >first : accepted setboard
-6747 >first : accepted playother
-6747 >first : accepted san
-6748 >first : accepted usermove
-6748 >first : accepted time
-6748 >first : accepted draw
-6748 >first : accepted sigint
-6748 >first : accepted sigterm
-6748 >first : accepted reuse
-6748 >first : accepted analyze
-6748 >first : accepted myname
-6748 >first : rejected variants
-6748 >first : accepted colors
-6748 >first : accepted ics
-6748 >first : accepted name
-6748 >first : accepted pause
-6748 >first : accepted nps
-6748 >first : accepted debug
-6748 >first : accepted memory
-6748 >first : accepted smp
-6748 >first : accepted done
-6748 <first : feature option="GaviotaTbPath -path ."
-6748 >first : accepted option
-6748 <first : feature done=1
-6748 >first : accepted done
-recognized 'normal' (-1) as variant normal
-6749 >first : new
-random
-6749 >first : level 40 5 0
-6749 >first : post
-6749 >first : hard
-6749 >first : ping 1
-Impossible move , type = 0
-6750 <first : pong 1
+2080 >first : level 40 5 0
+2080 >first : post
+2080 >first : hard
+2080 >first : ping 1
+2081 <first : pong 1
 nps: w=-1, b=-1
 nps: w=-1, b=-1
-8283 >first : time 30000
-8283 >first : otim 30000
+3110 >first : time 30000
+3110 >first : otim 30000
 book hit = (NULL)
-8283 >first : usermove 8283 >first : e2e3
-8363 <first : # Allocated 15, 30 seconds
+3110 >first : usermove 3110 >first : e2e3
+3199 <first : # Allocated 15, 30 seconds
+3199 <first : 1 1000 0 25 a5 
+3199 <first : # d: 1 node budget: 1 NPS: 52857.3
+3199 <first : 2 1000 0 46 a5 
+3199 <first : # d: 2 node budget: 4 NPS: 85506.4
+3199 <first : 3 1000 0 97 a5 a3 
+3199 <first : # d: 3 node budget: 16 NPS: 104192
+3199 <first : 4 1000 0 165 a5 a3 
+3199 <first : # d: 4 node budget: 64 NPS: 138775
+3199 <first : 5 1000 0 234 a5 a3 a4 
+3199 <first : # d: 5 node budget: 256 NPS: 156420
+3199 <first : 6 1000 0 358 a5 a3 a4 Ra2 
+3199 <first : # d: 6 node budget: 1024 NPS: 161118
+3199 <first : 7 1000 0 473 a5 a3 a4 Ra2 
+3199 <first : # d: 7 node budget: 4096 NPS: 186663
+3199 <first : 8 1000 0 592 a5 a3 a4 Ra2 Ra5 
+3200 <first : # d: 8 node budget: 16384 NPS: 195252
+3200 <first : 9 1000 0 767 a5 a3 a4 Ra2 Ra5 Ra1 
+3200 <first : # d: 9 node budget: 65536 NPS: 197072
+3200 <first : 10 1000 0 1287 a5 a3 a4 Ra2 Ra5 Ra1 
+3200 <first : # d: 10 node budget: 262144 NPS: 158518
+3200 <first : 11 1000 0 1523 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 
+3200 <first : # d: 11 node budget: 1048576 NPS: 172931
+3200 <first : 12 1000 1 3004 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 
+3200 <first : # d: 12 node budget: 4194304 NPS: 161976
+3200 <first : 13 1000 2 4096 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 
+3200 <first : # d: 13 node budget: 16777216 NPS: 171381
+3200 <first : 14 1000 2 6045 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 
+3200 <first : # d: 14 node budget: 67108864 NPS: 201601
+3200 <first : 15 1000 3 8883 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 
+3200 <first : # d: 15 node budget: 268435456 NPS: 222403
+3200 <first : 16 1000 4 11526 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 
+3200 <first : # d: 16 node budget: 1073741824 NPS: 243180
+3200 <first : 17 1000 5 15178 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 
+3200 <first : # d: 17 node budget: 4294967296 NPS: 266267
+3218 <first : 18 1000 10 24111 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 
+3218 <first : # d: 18 node budget: 17179869184 NPS: 226712
+3231 <first : 19 1000 11 30225 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 
+3231 <first : # d: 19 node budget: 68719476736 NPS: 251988
+3291 <first : 20 1000 17 53094 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 
+3291 <first : # d: 20 node budget: 274877906944 NPS: 295927
+3347 <first : 21 1000 23 76493 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 
+3348 <first : # d: 21 node budget: 1099511627776 NPS: 323813
+3444 <first : 22 1000 33 128020 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 
+3444 <first : # d: 22 node budget: 4398046511104 NPS: 384805
+3558 <first : 23 1000 44 200334 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 
+3558 <first : # d: 23 node budget: 17592186044416 NPS: 448180
+3956 <first : 24 1000 84 340746 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 
+3956 <first : # d: 24 node budget: 70368744177664 NPS: 403522
+4172 <first : 25 1000 106 465344 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 
+4173 <first : # d: 25 node budget: 281474976710656 NPS: 438526
+4794 <first : 26 1000 168 797752 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 
+4794 <first : # d: 26 node budget: 1125899906842624 NPS: 474128
+5597 <first : 27 1000 248 1188406 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 Na6 
+5597 <first : # d: 27 node budget: 4503599627370496 NPS: 478017
+6753 <first : 28 1000 364 1774782 a5 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 Na6 Ne2 
+6754 <first : # d: 28 node budget: 18014398509481984 NPS: 487290
+6754 <first : move a7a5
+6832 <first : # Allocated 14.8179, 29.6358 seconds
+6832 <first : 1 -1000 0 93 a3 
+6832 <first : # d: 1 node budget: 1 NPS: 407850
+6832 <first : 2 -1000 0 124 a3 
+6832 <first : # d: 2 node budget: 4 NPS: 436581
+6832 <first : 3 -1000 0 176 a3 a4 
+6832 <first : # d: 3 node budget: 16 NPS: 405506
+6832 <first : 4 -1000 0 226 a3 a4 
+6832 <first : # d: 4 node budget: 64 NPS: 460262
+6832 <first : 5 -1000 0 302 a3 a4 Ra2 
+6832 <first : # d: 5 node budget: 256 NPS: 455488
+6832 <first : 6 -1000 0 400 a3 a4 Ra2 Ra5 
+6832 <first : # d: 6 node budget: 1024 NPS: 478455
+6832 <first : 7 -1000 0 498 a3 a4 Ra2 Ra5 
+6833 <first : # d: 7 node budget: 4096 NPS: 541290
+6833 <first : 8 -1000 0 622 a3 a4 Ra2 Ra5 Ra1 
+6833 <first : # d: 8 node budget: 16384 NPS: 496003
+6833 <first : 9 -1000 0 776 a3 a4 Ra2 Ra5 Ra1 Rc5 
+6833 <first : # d: 9 node budget: 65536 NPS: 505529
+6833 <first : 10 -1000 0 928 a3 a4 Ra2 Ra5 Ra1 Rc5 
+6833 <first : # d: 10 node budget: 262144 NPS: 559702
+6833 <first : 11 -1000 0 1083 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 
+6833 <first : # d: 11 node budget: 1048576 NPS: 564349
+6833 <first : 12 -1000 0 1293 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 
+6833 <first : # d: 12 node budget: 4194304 NPS: 586654
+6833 <first : 13 -1000 0 1505 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 
+6833 <first : # d: 13 node budget: 16777216 NPS: 636357
+6833 <first : 14 -1000 0 1719 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 
+6833 <first : # d: 14 node budget: 67108864 NPS: 641412
+6833 <first : 15 -1000 0 1959 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 
+6833 <first : # d: 15 node budget: 268435456 NPS: 685199
+6833 <first : 16 -1000 0 2230 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 
+6833 <first : # d: 16 node budget: 1073741824 NPS: 692756
+6833 <first : 17 -1000 0 2534 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 
+6833 <first : # d: 17 node budget: 4294967296 NPS: 707224
+6833 <first : 18 -1000 0 2837 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 
+6833 <first : # d: 18 node budget: 17179869184 NPS: 747164
+6833 <first : 19 -1000 0 3175 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 
+6833 <first : # d: 19 node budget: 68719476736 NPS: 748993
+6833 <first : 20 -1000 0 3547 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 
+6833 <first : # d: 20 node budget: 274877906944 NPS: 761972
+6833 <first : 21 -1000 0 3917 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 
+6833 <first : # d: 21 node budget: 1099511627776 NPS: 797106
+6833 <first : 22 -1000 0 4295 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 
+6833 <first : # d: 22 node budget: 4398046511104 NPS: 810832
+6833 <first : 23 -1000 0 4701 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 
+6833 <first : # d: 23 node budget: 17592186044416 NPS: 841564
+6833 <first : 24 -1000 0 5135 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 
+6833 <first : # d: 24 node budget: 70368744177664 NPS: 857831
+6833 <first : 25 -1000 0 5606 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 Kb6 
+6833 <first : # d: 25 node budget: 281474976710656 NPS: 860340
+6833 <first : 26 -1000 0 6078 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 Kb6 
+6833 <first : # d: 26 node budget: 1125899906842624 NPS: 890285
+7506 <first : 27 -1000 75 436285 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 Kb6 Ra2 
+7506 <first : # d: 27 node budget: 4503599627370496 NPS: 579982
+9333 <first : 28 -1000 257 1330620 a3 a4 Ra2 Ra5 Ra1 Rc5 b3 axb3 cxb3 d6 d3 Kd7 Ne2 Kc6 Ng1 Kb5 Ke2 
+9333 <first : # d: 28 node budget: 18014398509481984 NPS: 515847
+12503 >first : time 29635
+12503 >first : otim 29425
+book hit = (NULL)
+12503 >first : usermove 12503 >first : e3e4
+12580 <first : # Allocated 14.8175, 29.635 seconds
+12580 <first : 1 1000 0 26 c6 
+12580 <first : # d: 1 node budget: 1 NPS: 69895.9
+12580 <first : 2 1000 0 48 c6 
+12580 <first : # d: 2 node budget: 4 NPS: 112946
+12580 <first : 3 1000 0 70 c6 
+12580 <first : # d: 3 node budget: 16 NPS: 153852
+12580 <first : 4 1000 0 138 c6 Ne2 
+12580 <first : # d: 4 node budget: 64 NPS: 158990
+12580 <first : 5 1000 0 208 c6 Ne2 d6 
+12580 <first : # d: 5 node budget: 256 NPS: 180558
+12580 <first : 6 1000 0 275 c6 Ne2 d6 
+12580 <first : # d: 6 node budget: 1024 NPS: 224860
+12580 <first : 7 1000 0 371 c6 Ne2 d6 Ng1 
+12580 <first : # d: 7 node budget: 4096 NPS: 234516
+12580 <first : 8 1000 0 512 c6 Ne2 d6 Ng1 Nf6 
+12580 <first : # d: 8 node budget: 16384 NPS: 172218
+12580 <first : 9 1000 0 668 c6 Ne2 d6 Ng1 Nf6 
+12580 <first : # d: 9 node budget: 65536 NPS: 202610
+12580 <first : 10 1000 0 1162 c6 Ne2 d6 Ng1 Nf6 Ke2 
+12580 <first : # d: 10 node budget: 262144 NPS: 161434
+12580 <first : 11 1000 0 1416 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 
+12580 <first : # d: 11 node budget: 1048576 NPS: 168652
+12580 <first : 12 1000 1 2458 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 
+12580 <first : # d: 12 node budget: 4194304 NPS: 172540
+12580 <first : 13 1000 1 3093 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 
+12580 <first : # d: 13 node budget: 16777216 NPS: 195921
+12580 <first : 14 1000 2 4602 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 
+12580 <first : # d: 14 node budget: 67108864 NPS: 217363
+12580 <first : 15 1000 2 6487 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 
+12580 <first : # d: 15 node budget: 268435456 NPS: 228762
+12580 <first : 16 1000 3 8561 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 
+12580 <first : # d: 16 node budget: 1073741824 NPS: 253900
+12580 <first : 17 1000 4 11955 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 
+12581 <first : # d: 17 node budget: 4294967296 NPS: 264322
+12583 <first : 18 1000 7 18539 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 
+12583 <first : # d: 18 node budget: 17179869184 NPS: 232289
+12593 <first : 19 1000 8 23129 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 
+12593 <first : # d: 19 node budget: 68719476736 NPS: 258151
+12620 <first : 20 1000 11 37250 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 
+12620 <first : # d: 20 node budget: 274877906944 NPS: 318976
+12654 <first : 21 1000 14 53509 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 
+12654 <first : # d: 21 node budget: 1099511627776 NPS: 356848
+12690 <first : 22 1000 18 73118 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 
+12690 <first : # d: 22 node budget: 4398046511104 NPS: 391495
+12742 <first : 23 1000 23 105174 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 
+12742 <first : # d: 23 node budget: 17592186044416 NPS: 441546
+12796 <first : 24 1000 29 148221 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 
+12796 <first : # d: 24 node budget: 70368744177664 NPS: 506709
+12895 <first : 25 1000 39 212663 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 
+12895 <first : # d: 25 node budget: 281474976710656 NPS: 542884
+13144 <first : 26 1000 63 327835 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 
+13144 <first : # d: 26 node budget: 1125899906842624 NPS: 512261
+13949 <first : 27 1000 144 654928 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 e6 
+13949 <first : # d: 27 node budget: 4503599627370496 NPS: 453142
+14712 <first : 28 1000 220 1117608 c6 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 e6 Ke1 
+14712 <first : # d: 28 node budget: 18014398509481984 NPS: 506008
+14713 <first : move c7c6
+14791 <first : # Allocated 14.707, 29.4141 seconds
+14791 <first : 1 -1000 0 93 Ne2 
+14791 <first : # d: 1 node budget: 1 NPS: 560449
+14791 <first : 2 -1000 0 124 Ne2 
+14791 <first : # d: 2 node budget: 4 NPS: 571591
+14791 <first : 3 -1000 0 176 Ne2 d6 
+14791 <first : # d: 3 node budget: 16 NPS: 519268
+14791 <first : 4 -1000 0 225 Ne2 d6 
+14791 <first : # d: 4 node budget: 64 NPS: 574070
+14791 <first : 5 -1000 0 296 Ne2 d6 Ng1 
+14791 <first : # d: 5 node budget: 256 NPS: 506903
+14791 <first : 6 -1000 0 395 Ne2 d6 Ng1 Nf6 
+14791 <first : # d: 6 node budget: 1024 NPS: 514364
+14791 <first : 7 -1000 0 494 Ne2 d6 Ng1 Nf6 
+14791 <first : # d: 7 node budget: 4096 NPS: 581219
+14791 <first : 8 -1000 0 620 Ne2 d6 Ng1 Nf6 Ke2 
+14791 <first : # d: 8 node budget: 16384 NPS: 567798
+14791 <first : 9 -1000 0 778 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 
+14791 <first : # d: 9 node budget: 65536 NPS: 599874
+14791 <first : 10 -1000 0 935 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 
+14791 <first : # d: 10 node budget: 262144 NPS: 647086
+14791 <first : 11 -1000 0 1085 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 
+14791 <first : # d: 11 node budget: 1048576 NPS: 633414
+14791 <first : 12 -1000 0 1302 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 
+14791 <first : # d: 12 node budget: 4194304 NPS: 646494
+14791 <first : 13 -1000 0 1525 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 
+14791 <first : # d: 13 node budget: 16777216 NPS: 699561
+14791 <first : 14 -1000 0 1735 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 
+14791 <first : # d: 14 node budget: 67108864 NPS: 717257
+14791 <first : 15 -1000 0 1975 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 
+14791 <first : # d: 15 node budget: 268435456 NPS: 763746
+14791 <first : 16 -1000 0 2252 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 
+14791 <first : # d: 16 node budget: 1073741824 NPS: 758520
+14791 <first : 17 -1000 0 2523 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 
+14791 <first : # d: 17 node budget: 4294967296 NPS: 768285
+14791 <first : 18 -1000 0 2845 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 
+14791 <first : # d: 18 node budget: 17179869184 NPS: 806877
+14791 <first : 19 -1000 0 3190 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 
+14791 <first : # d: 19 node budget: 68719476736 NPS: 834000
+14791 <first : 20 -1000 0 3562 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 
+14791 <first : # d: 20 node budget: 274877906944 NPS: 837933
+14791 <first : 21 -1000 0 3944 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 
+14791 <first : # d: 21 node budget: 1099511627776 NPS: 872578
+14791 <first : 22 -1000 0 4353 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 
+14791 <first : # d: 22 node budget: 4398046511104 NPS: 880294
+14791 <first : 23 -1000 0 4792 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 
+14791 <first : # d: 23 node budget: 17592186044416 NPS: 899917
+14791 <first : 24 -1000 0 5236 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 
+14791 <first : # d: 24 node budget: 70368744177664 NPS: 925916
+14791 <first : 25 -1000 0 5686 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 e6 
+14791 <first : # d: 25 node budget: 281474976710656 NPS: 917106
+14791 <first : 26 -1000 0 6208 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 e6 Ke1 
+14792 <first : # d: 26 node budget: 1125899906842624 NPS: 927961
+15203 <first : 27 -1000 49 300514 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 Kc7 c3 Na6 Ng1 e6 Ke1 
+15203 <first : # d: 27 node budget: 4503599627370496 NPS: 613254
+16579 <first : 28 -1000 186 876240 Ne2 d6 Ng1 Nf6 Ke2 Nxe4 f3 g6 fxe4 Kd7 Nf3 e6 Ke1 b6 Ng1 Kc7 
+16579 <first : # d: 28 node budget: 18014398509481984 NPS: 469527
+19431 >first : time 29414
+19431 >first : otim 28953
+book hit = (NULL)
+19431 >first : usermove 19431 >first : e4e5
+19507 <first : # Allocated 14.707, 29.414 seconds
+19507 <first : 1 1000 0 28 d6 
+19507 <first : # d: 1 node budget: 1 NPS: 75475.6
+19507 <first : 2 1000 0 50 d6 
+19507 <first : # d: 2 node budget: 4 NPS: 116828
+19508 <first : 3 1000 0 72 d6 
+19508 <first : # d: 3 node budget: 16 NPS: 156528
+19508 <first : 4 1000 0 145 d6 exd6 
+19508 <first : # d: 4 node budget: 64 NPS: 174283
+19508 <first : 5 1000 0 224 d6 exd6 exd6 
+19508 <first : # d: 5 node budget: 256 NPS: 182413
+19508 <first : 6 1000 0 298 d6 exd6 exd6 
+19508 <first : # d: 6 node budget: 1024 NPS: 227137
+19508 <first : 7 1000 0 381 d6 exd6 exd6 Ne2 
+19508 <first : # d: 7 node budget: 4096 NPS: 211787
+19508 <first : 8 1000 0 547 d6 exd6 exd6 Ne2 
+19508 <first : # d: 8 node budget: 16384 NPS: 205024
+19508 <first : 9 1000 0 702 d6 exd6 exd6 Ne2 Kd7 
+19508 <first : # d: 9 node budget: 65536 NPS: 220064
+19508 <first : 10 1000 0 1212 d6 exd6 exd6 Ne2 Kd7 Ng1 
+19508 <first : # d: 10 node budget: 262144 NPS: 161838
+19508 <first : 11 1000 0 1521 d6 exd6 exd6 Ne2 Kd7 Ng1 
+19508 <first : # d: 11 node budget: 1048576 NPS: 164362
+19508 <first : 12 1000 1 2644 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 
+19508 <first : # d: 12 node budget: 4194304 NPS: 160068
+19508 <first : 13 1000 1 3494 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 
+19508 <first : # d: 13 node budget: 16777216 NPS: 178284
+19508 <first : 14 1000 2 5190 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 
+19508 <first : # d: 14 node budget: 67108864 NPS: 195223
+19508 <first : 15 1000 3 7421 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 
+19508 <first : # d: 15 node budget: 268435456 NPS: 199844
+19508 <first : 16 1000 4 10412 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 
+19508 <first : # d: 16 node budget: 1073741824 NPS: 214261
+19508 <first : 17 1000 6 14579 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+19508 <first : # d: 17 node budget: 4294967296 NPS: 232624
+19523 <first : 18 1000 9 21190 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+19523 <first : # d: 18 node budget: 17179869184 NPS: 231871
+19543 <first : 19 1000 11 28433 d6 exd6 exd6 Ne2 Kd7 Ng1 Ne7 Ne2 Kc7 Ng1 
+19543 <first : # d: 19 node budget: 68719476736 NPS: 256151
+19584 <first : 20 1000 15 45688 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 
+19584 <first : # d: 20 node budget: 274877906944 NPS: 300245
+19620 <first : 21 1000 18 64122 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 
+19620 <first : # d: 21 node budget: 1099511627776 NPS: 340200
+19670 <first : 22 1000 23 90946 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+19670 <first : # d: 22 node budget: 4398046511104 NPS: 382357
+19712 <first : 23 1000 27 124190 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+19712 <first : # d: 23 node budget: 17592186044416 NPS: 443924
+19803 <first : 24 1000 37 184890 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 
+19803 <first : # d: 24 node budget: 70368744177664 NPS: 498034
+19930 <first : 25 1000 49 261438 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+19930 <first : # d: 25 node budget: 281474976710656 NPS: 524300
+20250 <first : 26 1000 81 412675 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+20250 <first : # d: 26 node budget: 1125899906842624 NPS: 504404
+21299 <first : 27 1000 186 830963 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 
+21299 <first : # d: 27 node budget: 4503599627370496 NPS: 444932
+22258 <first : 28 1000 282 1365343 d6 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 
+22258 <first : # d: 28 node budget: 18014398509481984 NPS: 483068
+22259 <first : move d7d6
+22336 <first : # Allocated 14.5657, 29.1313 seconds
+22337 <first : 1 -1000 0 98 exd6 
+22337 <first : # d: 1 node budget: 1 NPS: 410125
+22337 <first : 2 -1000 0 132 exd6 
+22337 <first : # d: 2 node budget: 4 NPS: 452130
+22337 <first : 3 -1000 0 193 exd6 exd6 
+22337 <first : # d: 3 node budget: 16 NPS: 437690
+22337 <first : 4 -1000 0 249 exd6 exd6 
+22337 <first : # d: 4 node budget: 64 NPS: 497054
+22337 <first : 5 -1000 0 311 exd6 exd6 Ne2 
+22337 <first : # d: 5 node budget: 256 NPS: 444317
+22337 <first : 6 -1000 0 426 exd6 exd6 Ne2 Kd7 
+22337 <first : # d: 6 node budget: 1024 NPS: 459076
+22337 <first : 7 -1000 0 541 exd6 exd6 Ne2 Kd7 
+22337 <first : # d: 7 node budget: 4096 NPS: 528862
+22337 <first : 8 -1000 0 646 exd6 exd6 Ne2 Kd7 Ng1 
+22337 <first : # d: 8 node budget: 16384 NPS: 526079
+22337 <first : 9 -1000 0 786 exd6 exd6 Ne2 Kd7 Ng1 
+22337 <first : # d: 9 node budget: 65536 NPS: 588785
+22337 <first : 10 -1000 0 961 exd6 exd6 Ne2 Kd7 Ng1 Kc7 
+22337 <first : # d: 10 node budget: 262144 NPS: 602904
+22337 <first : 11 -1000 0 1166 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 
+22337 <first : # d: 11 node budget: 1048576 NPS: 635439
+22337 <first : 12 -1000 0 1369 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 
+22337 <first : # d: 12 node budget: 4194304 NPS: 692480
+22337 <first : 13 -1000 0 1577 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 
+22337 <first : # d: 13 node budget: 16777216 NPS: 711658
+22337 <first : 14 -1000 0 1810 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 
+22337 <first : # d: 14 node budget: 67108864 NPS: 752927
+22337 <first : 15 -1000 0 2067 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+22337 <first : # d: 15 node budget: 268435456 NPS: 753019
+22337 <first : 16 -1000 0 2355 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 
+22337 <first : # d: 16 node budget: 1073741824 NPS: 765368
+22337 <first : 17 -1000 0 2645 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 
+22337 <first : # d: 17 node budget: 4294967296 NPS: 804942
+22337 <first : 18 -1000 0 2962 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 
+22337 <first : # d: 18 node budget: 17179869184 NPS: 811740
+22337 <first : 19 -1000 0 3310 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+22337 <first : # d: 19 node budget: 68719476736 NPS: 826271
+22337 <first : 20 -1000 0 3655 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+22337 <first : # d: 20 node budget: 274877906944 NPS: 859403
+22337 <first : 21 -1000 0 3995 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 
+22337 <first : # d: 21 node budget: 1099511627776 NPS: 864167
+22337 <first : 22 -1000 0 4398 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+22337 <first : # d: 22 node budget: 4398046511104 NPS: 875232
+22337 <first : 23 -1000 0 4807 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+22337 <first : # d: 23 node budget: 17592186044416 NPS: 904770
+22337 <first : 24 -1000 0 5215 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 
+22337 <first : # d: 24 node budget: 70368744177664 NPS: 899921
+22337 <first : 25 -1000 0 5651 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 
+22337 <first : # d: 25 node budget: 281474976710656 NPS: 926097
+22337 <first : 26 -1000 0 6118 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 
+22337 <first : # d: 26 node budget: 1125899906842624 NPS: 926836
+22891 <first : 27 -1000 63 356909 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 
+22892 <first : # d: 27 node budget: 4503599627370496 NPS: 564172
+24608 <first : 28 -1000 234 1118386 exd6 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 
+24608 <first : # d: 28 node budget: 18014398509481984 NPS: 476022
+25092 >first : time 29131
+25092 >first : otim 28670
+book hit = (NULL)
+25092 >first : usermove 25092 >first : e5d6
+25169 <first : # Allocated 14.5655, 29.131 seconds
+25169 <first : 1 1000 0 34 exd6 
+25169 <first : # d: 1 node budget: 1 NPS: 117633
+25169 <first : 2 1000 0 64 exd6 
+25169 <first : # d: 2 node budget: 4 NPS: 181801
+25169 <first : 3 1000 0 125 exd6 Ne2 
+25169 <first : # d: 3 node budget: 16 NPS: 205919
+25169 <first : 4 1000 0 181 exd6 Ne2 
+25169 <first : # d: 4 node budget: 64 NPS: 267738
+25169 <first : 5 1000 0 242 exd6 Ne2 Kd7 
+25169 <first : # d: 5 node budget: 256 NPS: 254728
+25169 <first : 6 1000 0 326 exd6 Ne2 Kd7 
+25169 <first : # d: 6 node budget: 1024 NPS: 314965
+25169 <first : 7 1000 0 435 exd6 Ne2 Kd7 Ng1 
+25169 <first : # d: 7 node budget: 4096 NPS: 340367
+25169 <first : 8 1000 0 575 exd6 Ne2 Kd7 Ng1 Kc7 
+25169 <first : # d: 8 node budget: 16384 NPS: 350175
+25169 <first : 9 1000 0 718 exd6 Ne2 Kd7 Ng1 Kc7 
+25169 <first : # d: 9 node budget: 65536 NPS: 404044
+25169 <first : 10 1000 0 887 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 
+25169 <first : # d: 10 node budget: 262144 NPS: 426230
+25169 <first : 11 1000 0 1090 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 
+25169 <first : # d: 11 node budget: 1048576 NPS: 460687
+25169 <first : 12 1000 0 1290 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 
+25169 <first : # d: 12 node budget: 4194304 NPS: 511492
+25169 <first : 13 1000 0 1483 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+25169 <first : # d: 13 node budget: 16777216 NPS: 519798
+25169 <first : 14 1000 0 1707 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+25169 <first : # d: 14 node budget: 67108864 NPS: 564664
+25169 <first : 15 1000 0 1964 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 
+25170 <first : # d: 15 node budget: 268435456 NPS: 574599
+25170 <first : 16 1000 0 2224 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 
+25170 <first : # d: 16 node budget: 1073741824 NPS: 580825
+25170 <first : 17 1000 0 2509 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 
+25170 <first : # d: 17 node budget: 4294967296 NPS: 620574
+25170 <first : 18 1000 0 2821 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+25170 <first : # d: 18 node budget: 17179869184 NPS: 628280
+25170 <first : 19 1000 0 3155 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 
+25170 <first : # d: 19 node budget: 68719476736 NPS: 643217
+25170 <first : 20 1000 0 3492 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 
+25170 <first : # d: 20 node budget: 274877906944 NPS: 677791
+25170 <first : 21 1000 0 3868 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+25170 <first : # d: 21 node budget: 1099511627776 NPS: 680383
+25170 <first : 22 1000 0 4274 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 
+25170 <first : # d: 22 node budget: 4398046511104 NPS: 692927
+25170 <first : 23 1000 0 4705 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 
+25170 <first : # d: 23 node budget: 17592186044416 NPS: 726301
+25170 <first : 24 1000 0 5140 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 
+25170 <first : # d: 24 node budget: 70368744177664 NPS: 736703
+25170 <first : 25 1000 0 5601 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 
+25170 <first : # d: 25 node budget: 281474976710656 NPS: 766312
+25170 <first : 26 1000 0 6089 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 
+25170 <first : # d: 26 node budget: 1125899906842624 NPS: 776655
+26159 <first : 27 1000 106 429370 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 Na6 
+26159 <first : # d: 27 node budget: 4503599627370496 NPS: 402652
+27184 <first : 28 1000 209 1020340 exd6 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 Na6 
+27184 <first : # d: 28 node budget: 18014398509481984 NPS: 487959
+27184 <first : move e7d6
+27261 <first : # Allocated 14.4609, 28.9218 seconds
+27261 <first : 1 -1000 0 93 Ne2 
+27261 <first : # d: 1 node budget: 1 NPS: 420842
+27261 <first : 2 -1000 0 124 Ne2 
+27261 <first : # d: 2 node budget: 4 NPS: 439739
+27261 <first : 3 -1000 0 188 Ne2 Kd7 
+27261 <first : # d: 3 node budget: 16 NPS: 398317
+27261 <first : 4 -1000 0 247 Ne2 Kd7 
+27261 <first : # d: 4 node budget: 64 NPS: 462559
+27261 <first : 5 -1000 0 296 Ne2 Kd7 Ng1 
+27261 <first : # d: 5 node budget: 256 NPS: 385927
+27261 <first : 6 -1000 0 407 Ne2 Kd7 Ng1 Kc7 
+27261 <first : # d: 6 node budget: 1024 NPS: 400991
+27261 <first : 7 -1000 0 521 Ne2 Kd7 Ng1 Kc7 
+27261 <first : # d: 7 node budget: 4096 NPS: 463117
+27261 <first : 8 -1000 0 636 Ne2 Kd7 Ng1 Kc7 Ne2 
+27261 <first : # d: 8 node budget: 16384 NPS: 443829
+27261 <first : 9 -1000 0 777 Ne2 Kd7 Ng1 Kc7 Ne2 
+27261 <first : # d: 9 node budget: 65536 NPS: 502267
+27261 <first : 10 -1000 0 947 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 
+27261 <first : # d: 10 node budget: 262144 NPS: 512727
+27261 <first : 11 -1000 0 1140 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+27261 <first : # d: 11 node budget: 1048576 NPS: 526562
+27261 <first : 12 -1000 0 1333 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 
+27261 <first : # d: 12 node budget: 4194304 NPS: 575814
+27261 <first : 13 -1000 0 1536 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 
+27261 <first : # d: 13 node budget: 16777216 NPS: 584478
+27261 <first : 14 -1000 0 1792 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 
+27261 <first : # d: 14 node budget: 67108864 NPS: 600740
+27261 <first : 15 -1000 0 2047 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 
+27261 <first : # d: 15 node budget: 268435456 NPS: 645337
+27261 <first : 16 -1000 0 2305 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+27261 <first : # d: 16 node budget: 1073741824 NPS: 664843
+27261 <first : 17 -1000 0 2588 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 
+27261 <first : # d: 17 node budget: 4294967296 NPS: 705564
+27261 <first : 18 -1000 0 2897 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 
+27261 <first : # d: 18 node budget: 17179869184 NPS: 722627
+27261 <first : 19 -1000 0 3242 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+27261 <first : # d: 19 node budget: 68719476736 NPS: 737323
+27261 <first : 20 -1000 0 3594 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 
+27261 <first : # d: 20 node budget: 274877906944 NPS: 766968
+27261 <first : 21 -1000 0 3944 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 
+27261 <first : # d: 21 node budget: 1099511627776 NPS: 769113
+27261 <first : 22 -1000 0 4378 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 
+27262 <first : # d: 22 node budget: 4398046511104 NPS: 772136
+27262 <first : 23 -1000 0 4809 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 
+27262 <first : # d: 23 node budget: 17592186044416 NPS: 803914
+27262 <first : 24 -1000 0 5235 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 
+27262 <first : # d: 24 node budget: 70368744177664 NPS: 816312
+27262 <first : 25 -1000 0 5706 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 
+27262 <first : # d: 25 node budget: 281474976710656 NPS: 834456
+27262 <first : 26 -1000 0 6213 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 Na6 
+27262 <first : # d: 26 node budget: 1125899906842624 NPS: 828291
+28107 <first : 27 -1000 92 526381 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 Na6 Bxa6 
+28107 <first : # d: 27 node budget: 4503599627370496 NPS: 570426
+30201 <first : 28 -1000 301 1572215 Ne2 Kd7 Ng1 Kc7 Ne2 Ne7 Ng1 g6 Ne2 Bf5 Ng1 b6 Ne2 g5 Ng1 Na6 Bxa6 
+30201 <first : # d: 28 node budget: 18014398509481984 NPS: 521212
 GameEnds(29, xboard exit, 2)
-83468 >first : result * {xboard exit}
-83468 >first : force
-83468 >first : ping 2
-83468 >first : quit
+30523 >first : result * {xboard exit}
+30523 >first : force
+30523 >first : ping 2
+30523 >first : quit

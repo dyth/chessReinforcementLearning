@@ -16,14 +16,6 @@ from weightsToPyTorch import *
 filename = "../eval.t7"
 
 
-# if gpu use cuda
-use_cuda = torch.cuda.is_available()
-FloatTensor = torch.cuda.FloatTensor if use_cuda else torch.FloatTensor
-Tensor = FloatTensor
-LongTensor = torch.cuda.LongTensor if use_cuda else torch.LongTensor
-ByteTensor = torch.cuda.ByteTensor if use_cuda else torch.ByteTensor
-
-
 class EvalNet(nn.Module):
     """
     Value Network Layers, Architecture and forward pass
@@ -31,6 +23,7 @@ class EvalNet(nn.Module):
     def __init__(self):
         'initialise all the layers and activation functions needed'
         super(EvalNet, self).__init__()
+
         # sliced first layer
         self.fc1_1 = nn.Linear(24, 24)
         self.fc1_2 = nn.Linear(80, 17)
@@ -39,6 +32,12 @@ class EvalNet(nn.Module):
 
         # second and third layers
         self.fc2 = nn.Linear(95, 64)
+
+        self.fc2a = nn.Linear(64, 640)
+        self.fc2b = nn.Linear(640, 640000)
+        self.fc2c = nn.Linear(640000, 640)
+        self.fc2d = nn.Linear(640, 64)
+
         self.fc3 = nn.Linear(64, 1)
 
         
@@ -61,8 +60,19 @@ class EvalNet(nn.Module):
         
         # second and third layers, output should be between -1 and +1
         out = F.relu(self.fc2(out))
+        out = F.relu(self.fc2a(out))
+        out = F.relu(self.fc2b(out))
+        out = F.relu(self.fc2c(out))
+        out = F.relu(self.fc2d(out))
         out = F.tanh(self.fc3(out))
         return out
+
+
+def create_cuda_EvalNet():
+	'return new EvalNet instance using CUDA'
+	model = EvalNet()
+	return model.cuda()
+
 
 def load_giraffe_weights(network):
 	'load weights trained by original Lua / C++ Giraffe'

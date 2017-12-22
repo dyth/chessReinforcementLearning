@@ -19,6 +19,7 @@
 #include <fstream>
 #include <string>
 #include <sstream>
+// #include <config.c>
 #include <Python.h>
 #include "thread_wrapper.h"
 #include "mutex_wrapper.h"
@@ -49,7 +50,7 @@
 #include "Eigen/Dense"
 
 #define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
-#include "/home/dyth/.local/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h"
+#include <numpy/arrayobject.h>
 
 const std::string EvalNetFilename = "eval.t7";
 const std::string MoveEvalNetFilename = "meval.t7";
@@ -123,10 +124,10 @@ void Initialize()
 
 int main(int argc, char *argv[]) {
 	// start a python interpreter and pass arguments
+	//putenv("PYTHONPATH=/home/dyth/.local/");
 	Py_Initialize();
 	PySys_SetArgv(argc, argv);
-	import_array();
-	
+	//PySys_SetPath("./ann/");
 
 	// initialise both networks and backend
 	Initialize();

@@ -47,9 +47,6 @@ using ANN = EigenANN;
 
 #include "matrix_ops.h"
 
-#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
-#include "/home/dyth/.local/lib/python2.7/site-packages/numpy/core/include/numpy/arrayobject.h"
-
 namespace {
 template<int NUM_ARGUMENTS, int NUM_RETS>
 class LuaFunctionCall {

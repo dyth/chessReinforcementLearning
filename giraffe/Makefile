@@ -17,11 +17,13 @@ ifndef CC
 	CC=gcc
 endif
 
-#HGVERSION:= $(shell hg parents --template '{node|short}')
+NUMPYINC = /home/dyth/.local/lib/python2.7/site-packages/numpy/core/include
 
 CXXFLAGS_BASE = \
-	-Wall -Wextra -Wno-unused-function -std=gnu++11 -mtune=native -ffast-math \
-	-pthread -fopenmp -fpermissive -I/usr/include/python2.7 #-DHGVERSION="\"${HGVERSION}\""
+	-Wall -Wextra -Wno-unused-function -Wno-write-strings \
+	-std=gnu++11 -mtune=native -ffast-math \
+	-pthread -fopenmp -fpermissive $$(python-config --includes) -I$(NUMPYINC) \
+	-I$$(python-config --configdir)
 
 # we will then extend this one with optimization flags
 CXXFLAGS:= $(CXXFLAGS_BASE)
@@ -29,17 +31,15 @@ CXXFLAGS:= $(CXXFLAGS_BASE)
 CXXFLAGS_DEP = \
 	-std=gnu++11
 
-LDFLAGS=-L. -Lgtb -lm -lgtb -lpython2.7
+#LDFLAGS=-L. -Lgtb -lm -lgtb -lpython2.7
+LDFLAGS=-L. -Lgtb -lm -lgtb $$(python-config --ldflags)
 
 ifeq ($(HAS_TORCH), 1)
 	LDFLAGS += -L $(TORCH_DIR)/lib
-	
 	# for LuaJIT
 	LDFLAGS += -lluaT -lTH -lluajit
-	
 	#for LUA 5.2
 	#LDFLAGS += -lluaT -lTH -llua
-	
 	CXXFLAGS += -DHAS_TORCH -I $(TORCH_DIR)/include
 endif
 
@@ -57,6 +57,7 @@ CXXFILES := \
 	$(wildcard eval/*.cpp) \
 	$(wildcard move_stats/*.cpp)
 
+# finds eigen -- which is in the same directory
 INCLUDES=-I.
 
 EXE=giraffe
@@ -93,7 +94,7 @@ default: $(EXE)
 
 dep/%.d: %.cpp
 	$(Q) $(CXX) $(CXXFLAGS_DEP) $(INCLUDES) $< -MM -MT $(@:dep/%.d=obj/%.o) > $@
-	
+
 obj/%.o: %.cpp
 	$(Q) $(CXX) $(CXXFLAGS) $(INCLUDES) -c $(@:obj/%.o=%.cpp) -o $@
 
@@ -105,11 +106,11 @@ gtb/libgtb.a:
 
 test:
 	$(Q) echo $(DEPS)
-	
+
 clean:
 	-$(Q) rm -f $(DEPS) $(OBJS) $(EXE)
 	$(Q) cd gtb && make clean
-	
+
 windows:
 	$(Q) cd gtb && make clean && make CFLAGS=-m32 CC=$(WIN32_CC)
 	$(WIN32_CXX) $(CXXFLAGS_BASE) $(INCLUDES) -O3 -static -march=pentium2 $(CXXFILES) -o giraffe_w32.exe -Lgtb -lgtb -pthread -static-libgcc -static-libstdc++
@@ -126,10 +127,13 @@ endif
 ifeq ($(MAKECMDGOALS),windows)
 	no_deps = yes
 endif
-	
+
 ifndef no_deps
 	-include $(DEPS)
 endif
+
+run: giraffe
+	xboard -debug -fcp "./giraffe" -scp "./giraffe"
 
 # -march benchmark notes:
 # SSE = +37%

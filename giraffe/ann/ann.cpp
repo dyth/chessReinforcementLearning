@@ -22,6 +22,9 @@
 #include "random_device.h"
 #include <Python.h>
 
+#define NPY_NO_DEPRECATED_API NPY_1_7_API_VERSION
+#include "numpy/arrayobject.h"
+
 ANN::ANN(bool eigenOnly) : m_eigenOnly(eigenOnly) {
 	if (!m_eigenOnly) {
 		Init_();
@@ -115,10 +118,13 @@ float ANN::Train(const NNMatrixRM &x, const NNMatrixRM &t) {
 
 // load filename into python giraffe
 void ANN::Load(const std::string &filename) {
+	return;
+	/*
 	PyObject* pyArgs = PyTuple_New(1);
     PyTuple_SetItem(pyArgs, 0, evalNet);
 	PyObject* py_lgr = PyDict_GetItemString(functions, "load_giraffe_weights");
     PyObject_CallObject(py_lgr, pyArgs);
+	*/
 }
 
 void ANN::Save(const std::string &filename) {
@@ -173,7 +179,7 @@ void ANN::Init_()
 	PyObject* moduleName = PyString_FromString("valueNetwork");
 	PyObject* valueNetwork = PyImport_Import(moduleName);
 	functions = PyModule_GetDict(valueNetwork);
-	PyObject* EvalNet = PyDict_GetItemString(functions, "EvalNet");
+	PyObject* EvalNet = PyDict_GetItemString(functions, "create_cuda_EvalNet");
 	evalNet = PyObject_CallObject(EvalNet, nullptr);
 }
 
@@ -194,12 +200,9 @@ void ANN::CheckFreeTensor_(THFloatTensor *&tensor) {
 // forward pass of the network
 float ANN::ForwardSingle(std::vector<float> &v)
 {
-	// eigen array to numpy array
-	PyObject* inputLayer = PyList_New(v.size());
-	for (unsigned int i = 0; i < v.size(); i++) {
-		PyObject *num = PyFloat_FromDouble((double) v[i]);
-		PyList_SET_ITEM(inputLayer, i, num);
-	}
+	import_array();
+	npy_intp dims[] = {(npy_intp) v.size()};
+	PyObject *inputLayer = PyArray_SimpleNewFromData(1, dims, NPY_FLOAT, &v[0]);
 
 	// create argument tuple
 	PyObject* pyArgs = PyTuple_New(2);

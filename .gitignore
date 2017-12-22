@@ -10,3 +10,8 @@
 
 # no compiled file
 ./giraffe/giraffe
+*.o
+*.d
+*.a
+*.out
+*.debug
