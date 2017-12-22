@@ -9,7 +9,7 @@
 *.fen
 
 # no compiled file
-./giraffe/giraffe
+giraffe/giraffe
 *.o
 *.d
 *.a
