@@ -9,11 +9,7 @@ import torch.nn.functional as F
 import torch.optim as optim
 import numpy as np
 
-from weightsToPyTorch import *
-
-
-# filename of the weights used
-filename = "../eval.t7"
+from weightsToPyTorch import read_parameters
 
 
 class EvalNet(nn.Module):
@@ -32,13 +28,12 @@ class EvalNet(nn.Module):
 
         # second and third layers
         self.fc2 = nn.Linear(95, 64)
-
-        self.fc2a = nn.Linear(64, 640)
-        self.fc2b = nn.Linear(640, 640000)
-        self.fc2c = nn.Linear(640000, 640)
-        self.fc2d = nn.Linear(640, 64)
-
         self.fc3 = nn.Linear(64, 1)
+
+        # cuda available?
+        self.use_gpu = torch.cuda.is_available()
+        if self.use_gpu:
+            self.cuda()
 
         
     def forward(self, inputLayer):
@@ -60,38 +55,30 @@ class EvalNet(nn.Module):
         
         # second and third layers, output should be between -1 and +1
         out = F.relu(self.fc2(out))
-        out = F.relu(self.fc2a(out))
-        out = F.relu(self.fc2b(out))
-        out = F.relu(self.fc2c(out))
-        out = F.relu(self.fc2d(out))
         out = F.tanh(self.fc3(out))
         return out
 
 
-def create_cuda_EvalNet():
-	'return new EvalNet instance using CUDA'
-	model = EvalNet()
-	return model.cuda()
-
-
-def load_giraffe_weights(network):
-	'load weights trained by original Lua / C++ Giraffe'
-	network.load_state_dict(read_parameters(filename))
+def load_giraffe_weights(network, filename):
+    'load weights trained by original Lua / C++ Giraffe'
+    network.load_state_dict(read_parameters(filename))
+    return network 
 
 
 def forward_pass(network, x):
-	'do a forward pass of the network'
-	return network(Variable(x)).data[0][0]
+    'do a forward pass of the network'
+    if network.use_gpu:
+        x = x.cuda()
+    return network(Variable(x)).data[0][0]
 
 
 if __name__ == "__main__":
-	'create network and verify it works with previous giraffe weights'
-	evalNet = EvalNet()
-	# verification: load weights and get output
-	print forward_test(evalNet)
-	load_giraffe_weights(evalNet)
-	forward_pass(torch.FloatTensor(1, 368), evalNet)
-	print forward_test(evalNet)
+    'create network and verify it works with previous giraffe weights'
+    evalNet = EvalNet()
+    sample_input = torch.FloatTensor(1, 368)
+    print forward_pass(evalNet, sample_input)
+    evalNet = load_giraffe_weights(evalNet, "../eval.t7")
+    print forward_pass(evalNet, sample_input)
 
-	# save weights
-	#torch.save(evalNet.state_dict(), "weights.t7")
+    # save weights
+    #torch.save(evalNet.state_dict(), "weights.t7")

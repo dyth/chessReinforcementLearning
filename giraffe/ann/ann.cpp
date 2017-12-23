@@ -117,14 +117,17 @@ float ANN::Train(const NNMatrixRM &x, const NNMatrixRM &t) {
 }
 
 // load filename into python giraffe
-void ANN::Load(const std::string &filename) {
-	return;
-	/*
-	PyObject* pyArgs = PyTuple_New(1);
+void ANN::Load(const std::string &filename)
+{
+	// create argument tuple of (network, filename)
+	PyObject* pythonFilename = PyString_FromString(&filename[0]);
+	PyObject* pyArgs = PyTuple_New(2);
     PyTuple_SetItem(pyArgs, 0, evalNet);
+    PyTuple_SetItem(pyArgs, 1, pythonFilename);
+
+	// load_giraffe_weights(network, filename)
 	PyObject* py_lgr = PyDict_GetItemString(functions, "load_giraffe_weights");
-    PyObject_CallObject(py_lgr, pyArgs);
-	*/
+    evalNet = PyObject_CallObject(py_lgr, pyArgs);
 }
 
 void ANN::Save(const std::string &filename) {
@@ -179,7 +182,7 @@ void ANN::Init_()
 	PyObject* moduleName = PyString_FromString("valueNetwork");
 	PyObject* valueNetwork = PyImport_Import(moduleName);
 	functions = PyModule_GetDict(valueNetwork);
-	PyObject* EvalNet = PyDict_GetItemString(functions, "create_cuda_EvalNet");
+	PyObject* EvalNet = PyDict_GetItemString(functions, "EvalNet");
 	evalNet = PyObject_CallObject(EvalNet, nullptr);
 }
 

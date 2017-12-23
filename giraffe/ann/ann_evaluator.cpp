@@ -161,8 +161,7 @@ Score ANNEvaluator::EvaluateForWhiteImpl(Board &b, Score /*lowerBound*/, Score /
 {
 	auto hashResult = HashProbe_(b);
 
-	if (hashResult)
-	{
+	if (hashResult) {
 		return *hashResult;
 	}
 
