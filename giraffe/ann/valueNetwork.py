@@ -45,6 +45,11 @@ class EvalNet(nn.Module):
         out_4 = inputLayer.narrow(1, 240, 128)
 
         # output slices
+        #out_1 = F.relu(self.fc1_1(out_1))
+        #out_2 = F.relu(self.fc1_2(out_2))
+        #out_3 = F.relu(self.fc1_3(out_3))
+        #out_4 = F.relu(self.fc1_4(out_4))
+        
         out_1 = self.fc1_1(out_1)
         out_2 = self.fc1_2(out_2)
         out_3 = self.fc1_3(out_3)
@@ -61,7 +66,8 @@ class EvalNet(nn.Module):
 
 def load_giraffe_weights(network, filename):
     'load weights trained by original Lua / C++ Giraffe'
-    network.load_state_dict(read_parameters(filename))
+    #network.load_state_dict(read_parameters(filename))
+    network.load_state_dict(torch.load(filename))
     return network 
 
 
