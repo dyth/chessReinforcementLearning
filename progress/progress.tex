@@ -5,30 +5,30 @@
 \usepackage[none]{hyphenat}
 \usepackage{url}
 
-\title{Computer Science Tripos, Part II, Project Proposal}
-\author{David Yu-Tung Hui, Trinity College}
+\title{Deep Reinforcement Learning For Chess}
+\author{David Yu-Tung Hui, Trinity College, \url{dyth2@cam.ac.uk}}
 \date{\today}
 
 
 \begin{document}
 \maketitle
 
-\centerline{\huge Deep Reinforcement Learning For Chess}
-\vspace{0.2in}
-%\centerline{\large Combining Rule-Based Search Algorithms with Deep}
-%\vspace{0.05in}
-%\centerline{\large Reinforcement Learning in the Context of Chess}
-%\vspace{0.45in}
-\centerline{\large Originator: David Yu-Tung Hui}
+\centerline{\large Director of Studies: Dr. Sean Holden}
 \vspace{0.05in}
 \centerline{\large Project Supervisor: Dr. Sean Holden}
 \vspace{0.05in}
 \centerline{\large Project Overseers: Dr. Markus Kuhn, Pr. Peter Sewell}
 
+\paragraph{} The Chess engine relies on three components: a search algorithm, an evaluation function and a learning algorithm. The evaluation function scores a chessboard with a deep network. These scores can be used in a search algorithm to find optimal moves and strategies. Reinforcement Learning is then used to train and optimise these two components. As of now, all of them have been implemented and are functional.
 
-\section*{Introduction}
+\paragraph{} A successful project would be able to beat an agent playing random moves $95 \%$ of the time, within 80 plys. As current progress at $60 \%$, performance can be improved through marginal gains of each component. Extension goals have not yet been met because of their dependency to the success criterion. 
 
-\paragraph{}Recent advances in Artificial Intelligence combine the strengths of two subfields to produce powerful hybrid agents. Such agent architectures include AlphaGo, the first computer program to play Go with superhuman ability. \cite{AlphaGo} By harnessing Deep Reinforcement Learning with classical search algorithms, hybrid architectures possess the advantages, as well as weaknesses, of both fields.
+\paragraph{} Other deliverables were a proof of concept pole-balancing agent, a random agent which the chess engine plays against and scripts which evaluate the performance of the agent. All of these have been successfully implemented, apart from the pole-balancing agent. This is because it is a continuous-time problem, whereas Chess is discrete-time. As pole-balancing would require a different architecture to that of a Chess agent, this agent was not implemented.
 
+\paragraph{} A starting point was modifying the Giraffe Chess engine, from which the above engine architecture was derived. Written in C++, a Python backend was incorporated to run a Deep Network written in PyTorch. This enabled Giraffe to use the fast processing power of a GPU, written simply in PyTorch. To speed up evaluation, a Python entry point was adapted from Sunfish, another Chess engine. This was interfaced with the network architecture and chessboard processing from Giraffe.
+
+\paragraph{} Two searching algorithms: Minimax and Best-First Search are implemented. Efficiency can be improved through implementing heuristic variations such as Negamax or MTD-Bi which prune the search tree. Many different feedforward network architectures have been implemented for use in the evaluation function. In order to find the optimal architecture -- which balances size and learning rate, an adaptive network algorithm such as cascade correlation can be used to compress a large network. Finally, three Reinforcement Learning algorithms have been implemented: TD-Learning, TD-Leaf and Treestrap, with Treestrap the most effective.
+
+\paragraph{} Treestrap, combined with MTD-Bi and better network architecture would greatly improve the power of the agent such that the success criterion can be met.
 
 \end{document}
