@@ -1,0 +1,243 @@
+\documentclass[a4paper]{article}
+\usepackage[lmargin=1in, rmargin=1in, tmargin=1in, bmargin=1in]{geometry}
+\setcounter{tocdepth}{3}
+\usepackage{enumitem}
+\usepackage[none]{hyphenat}
+\usepackage{url}
+
+\title{Computer Science Tripos, Part II, Project Proposal}
+\author{David Yu-Tung Hui, Trinity College}
+\date{\today}
+
+
+\begin{document}
+\maketitle
+
+\centerline{\huge Deep Reinforcement Learning For Chess}
+\vspace{0.2in}
+%\centerline{\large Combining Rule-Based Search Algorithms with Deep}
+%\vspace{0.05in}
+%\centerline{\large Reinforcement Learning in the Context of Chess}
+%\vspace{0.45in}
+\centerline{\large Originator: David Yu-Tung Hui}
+\vspace{0.05in}
+\centerline{\large Project Supervisor: Dr. Sean Holden}
+\vspace{0.05in}
+\centerline{\large Project Overseers: Dr. Markus Kuhn, Pr. Peter Sewell}
+
+
+\section*{Introduction}
+
+\paragraph{}Recent advances in Artificial Intelligence combine the strengths of two subfields to produce powerful hybrid agents. Such agent architectures include AlphaGo, the first computer program to play Go with superhuman ability. \cite{AlphaGo} By harnessing Deep Reinforcement Learning with classical search algorithms, hybrid architectures possess the advantages, as well as weaknesses, of both fields.
+
+\paragraph{}To analyse such architectures, I will reimplement \textit{Giraffe}, a predecessor of AlphaGo. Developed by Matthew Lai, Giraffe was trained on a CPU in Chess, achieving a strength of an international master. \cite{giraffe} My reimplementation would run on a GPU, making it one of the first chess engines to do so. With the increasing cost-effectiveness of GPUs, speedups in Deep Learning are attained and are becoming more popular. However, they are rarely used in Chess because most agents rely on hand-crafted search and evaluation algorithms with no machine learning. Optional further extensions would modify the searching algorithm and conduct empirical user studies.
+
+\paragraph{}Combining rule based algorithms with Deep Learning would unify many years of orthogonal research, and perhaps provide a foundation of the direction to come. It is possible that this new architecture may yield a new strategy within the game of Chess, enhancing the knowledge of the game as well as providing a new opponent for humans to train against.
+
+\section*{Substance and Structure}
+
+\paragraph{}The finished codebase will consist of an agent capable of playing against chess engines and humans using the GNUChess / XBoard Communication Protocol. Deep Learning networks run on top of an internal board representation, adapted from Giraffe. This contains rules and constraints on the legality of moves. Optional project extensions add another searching algorithm for comparison. In addition to the code, analysis of the above techniques will be summarised in the Dissertation.
+
+\paragraph{}Giraffe is based around \textit{Probability-Limited Search}. From the current board position, a \textit{game tree} is created by simulating all possible games until the probability of principal variation dips below a threshold value. Principal variation occurs when the nature of the game changes, for instance between midgame and endgame, or in checkmate, when a player wins. \textit{Minimax} runs on the tree to find the optimal move. This is so named because the best move maximises the minimum values your opponent can force.
+
+\paragraph{}Built around this are two \textit{deep neural networks}, the quality of which are the most important part of the project. One neural network evaluates the value of a board and is known as the \textit{value network}. The other estimates the probability of principle variation, generating the search tree. As Chess players have timed moves, these will have to be coded efficiently to search as many nodes as possible.
+
+\paragraph{} There are two training phases. First, (board, distance-to-checkmate) pairs pre-train the value network by \textit{supervised learning}, where distance-to-checkmate is an initial approximation of value. During the second phase, the agent plays against itself in \textit{Reinforcement Learning}, specifically in \textit{Temporal difference learning}. A classic Reinforcement Learning problem is the \textit{exploitation vs exploration} tradeoff whereupon the agent balances exploiting the optimal strategy from numerous exploratory strategies. Giraffe explores by randomly generating a move during training or by adding or removing pieces to the board. \textit{Memoisation} keeps track of which boards have been seen. \cite{giraffe}
+
+\paragraph{}The optional extension implements a search algorithm similar to AlphaGo. It uses \textit{Monte Carlo Tree Search} instead of Probability-Limited Search in Giraffe. Here, the search tree is limited by a \textit{policy network}, which generates three promising next moves from a board, greatly reducing the \textit{branching factor}, or breadth of the search tree. \cite{AlphaGo}
+
+\paragraph{}Overall, the project can be categorised into five stages. During \textit{preparation}, I will investigate papers and courses concerning Chess and Reinforcement Learning. \cite{giraffe} \cite{AlphaGo} \cite{TD-Gammon} \cite{knightcap} This would enable me to structure the project and select programming languages, libraries, and protocols.
+
+\paragraph{}During \textit{implementation} I shall back up my progress by uploading code to Github and trained network weights to Google Drive. Every week, I shall discuss progress with my supervisor during a 30 minute supervision. This, alongside \textit{validation}, would follow a spiral or evolutionary model of code development.
+
+\paragraph{}If there is time, an optional \textit{extension} would be implemented, adding more iterations to the engineering process. Validation of the extension should not affect the assessment of the project.
+
+\paragraph{}Finally, I will present my findings in a \textit{dissertation}. As I plan to simultaneously document progress, this phase would entail condensing and finalising all materials.
+
+
+\section*{Starting Point}
+
+\subsection*{Tripos Courses}
+
+\paragraph{Artificial Intelligence, Part IB} The course introduces the concept of an \textit{agent} and an \textit{environment}, as well as two principle project components: \textit{Searching Algorithms} and \textit{Backpropagation}. These concepts would be fundamental to understanding an overview of Giraffe and how the structure of the codebase would be laid out.
+
+\paragraph{Machine Learning and Baysean Inference, Part II} Expanding on Artificial Intelligence, this course introduces \textit{Reinforcement Learning} and \textit{Temporal Difference Learning}, techniques used in both Giraffe and AlphaGo. As these is a Lent course, I will read other literature alongside last year's lecture notes to understand the algorithms.
+
+\paragraph{} These two courses provide a solid foundation for understanding the original TD-Gammon, KnightCap, AlphaGo and Giraffe papers.
+
+\paragraph{Algorithms, Part IA} Taught concepts such as runtime and asymptotic complexity would be a solid foundation for comparing Giraffe and AlphaGo with each other, as well as comparing the search algorithms within each engine to commonly used search algorithms.
+
+\paragraph{Programming in C / C++, Part IB} Many chess engines and position evaluators are implemented in C or C++. By describing the low-level function and utility of operators this course would be useful when isolating parts of Giraffe that I need. In addition, C++ can be used to create custom Deep Learning functions within PyTorch, such as custom layers, activation, loss or reward functions.
+
+\paragraph{} During implementation, the following three courses will provide guidance. \textbf{Computer Design, Part IB} introduces the architecture of a GPU and how \textit{CUDA} can be used in computation. \textbf{Concurrent and Distributed Systems, Part IB} introduces design patterns to prevent concurrency which may occur during a match, or when the agent trains against itself. Finally, \textbf{Human-Computer Interaction, Part II} describes how to design user-studies and tests, providing valuable advice in the extension experiment for empirical user feedback.
+
+
+\subsection*{Additional Languages, Packages and Datasets}
+
+\paragraph{Giraffe} A good starting point would be to download and train the open source Giraffe agent, verifying that it is in working condition. If my GPU trains too slowly, this can be used for bootstrapping.
+
+\paragraph{XBoard / WinBoard Communication Protocol} XBoard, or WinBoard on PC, is a GUI useful for debugging. It supports the XBoard Communication Protocol, the most popular protocol for chess engines to communicate.
+
+\paragraph{CCRL, Gaviota} The Computer Chess Rating Lists specialise in agent to agent training. Games can be downloaded from the website and used to train Giraffe. Each chessboard can then be annotated by Gaviota to produce (board, distance-to-checkmate) pairs used in training. \cite{gaviota} \cite{giraffe}
+
+\paragraph{Python, PyTorch} The PyTorch Package runs on top of Python, abstracting GPU processes to construct and train deep networks. As the main complexity of the project is successfully creating a deep network, this ecosystem has adequate flexibility to experiment and implement various network designs. \cite{PyTorch} 
+
+
+\section*{Evaluation}
+
+\paragraph{} The most popular metric is \textbf{ELO}, an internationally recognised strength metric. The most advanced chess engines have 3200 ELO whereas an amateur human has 1000. \cite{giraffe} This can be estimated using the OrdoELO or BayesELO test suites. At a more fine grained level, the \textbf{Strategic Test Suite} tests agents on how quickly and accurately they recognise optimal moves over 10000 positions. \cite{sts} In contrast to both, \textbf{empirical user studies} analyse style, aesthetics and humanlike qualities of an agent. However, none of the above explicitly measures whether the agent has been successfully trained. This is because an agent is more likely to perform better against strong opponents, rather than against any opponent, because the agent trains by playing itself. Therefore I shall use the following statistical test for evaluation.
+
+\paragraph{Null Hypothesis}: Within a chess game of 80 plys, there is no significant difference between a trained agent and one that plays randomly generated moves. A ply is the unit of a turn from a player.
+
+\paragraph{Alternate Hypothesis}: Within a chess game of 80 plys, a trained agent performs better than one that plays randomly generated moves.
+
+\paragraph{Significance}: 95 \%
+
+\paragraph{}These values were chosen because the mean length of a chess match is around 80 plys, and 5 \% is the lowest commonly used significance threshold. The same criterion will be used to evaluate the optional extension, though will not affect how the project's assessment.
+
+
+\section*{Plan of work}
+
+\paragraph{} I have divided up the time between the start of the year and the submission date into 16 different sprints, named after the technique in agile code development. Buffer sprints are laid out around deadlines to allow margin for areas of code development which may take longer than anticipated.
+
+\paragraph{Sprint 1: 7\textsuperscript{th} October -- 20\textsuperscript{th} October}
+\begin{itemize}
+\item Submit project proposal by 20\textsuperscript{th} October.
+\item Investigate, identify and install all relevant software into all development machines.
+\item Start documentation log for work done this week.
+\end{itemize}
+
+\textbf{Milestone}: Submit project proposal report.
+
+\paragraph{Sprint 2: 21\textsuperscript{st} October -- 3\textsuperscript{rd} November}
+\begin{itemize}
+\item Start git repository and sync to GitHub for backing up software.
+\item Clone and install Giraffe open-source code, build on own machine and investigate how it works.
+\item Read relevant papers, including TD-Gammon, KnightCap, AlphaGo and Giraffe. 
+\end{itemize}
+
+\textbf{Milestone}: Run and train a working model of Giraffe.
+
+\paragraph{Sprint 3: 4\textsuperscript{th} November -- 17\textsuperscript{th} November}
+\begin{itemize}
+\item Identify and isolate the board representation and chess rule constrainer portion of Giraffe.
+\item Learn and develop how to train reinforcement learning agents in PyTorch, with the OpenAI Gym.
+\item Begin to reimplement Giraffe's deep networks with PyTorch.
+\end{itemize}
+
+\textbf{Milestone}: Train an agent to play OpenAI's Pendulum.
+
+\paragraph{Sprint 4: 18\textsuperscript{th} November -- 1\textsuperscript{st} December}
+\begin{itemize}
+\item Finish implementing Giraffe's deep network.
+\item Pre-train the network with (board, distance-to-checkmate) pairs.
+\item Begin to train the agent.
+\end{itemize}
+
+\textbf{Milestone}: Pre-train the network with Gaviota.
+
+\paragraph{Sprint 5: 3\textsuperscript{nd} December -- 15\textsuperscript{th} December}
+\begin{itemize}
+\item Implement the evaluator: the opponent who plays with randomly-generated moves.
+\item Successfully train the agent with Reinforcement Learning.
+\item Evaluate the performance of the agent.
+\end{itemize}
+
+\textbf{Milestone}: View the evaluation of the trained agent.
+
+\paragraph{Sprint 6: 16\textsuperscript{th} December -- 29\textsuperscript{th} December}
+\begin{itemize}
+\item Continue to train Giraffe by playing it against itself.
+\item Evaluate Giraffe with the Strategic Test Suite and estimated ELO
+\end{itemize}
+
+\textbf{Milestone}: Successfully train Giraffe to pass the success criterion.
+
+\paragraph{Sprint 7: 30\textsuperscript{th} December -- 12\textsuperscript{th} January}
+\begin{itemize}
+\item Conduct experiments into how running Giraffe on CPU differs from GPU
+\item Analyse data from the Strategic Test Suite and ELO ratings
+\item \textit{Extension}: Conduct User Studies into Giraffe.
+\end{itemize}
+
+\textbf{Milestone}: Successfully train Giraffe to pass the success criterion.
+
+\paragraph{Sprint 8: 13\textsuperscript{th} January -- 26\textsuperscript{th} January}
+\begin{itemize}
+\item Produce a draft of the progress report for feedback from supervisor.
+\item \textit{Extension}: Conduct User Studies into Giraffe.
+\end{itemize}
+\textbf{Milestone}: Obtain progress report feedback from supervisor.
+
+\paragraph{Sprint 9: 27\textsuperscript{th} January -- 9\textsuperscript{th} February}
+\begin{itemize}
+\item Finish and submit the progress report.
+\item \textit{Extension}: Implement Monte-Carlo Tree Search.
+\item \textit{Extension}: Begin to implement and train policy network.
+\end{itemize}
+
+\textbf{Milestone}: Submit progress report by Fri 2 Feb 2018 (12 noon)
+
+\paragraph{Sprint 10: 10\textsuperscript{th} February -- 23\textsuperscript{rd} February}
+\begin{itemize}
+\item Prepare slides and a five minute presentation detailing the project.
+\item \textit{Extension}: Finish implementing and training the policy network.
+\end{itemize}
+
+\textbf{Milestone}: Give the Progress Report Presentation
+
+\paragraph{Sprints 11 and 12: 24\textsuperscript{th} February -- 23\textsuperscript{rd} March}
+\begin{itemize}
+\item Buffer sprints, finish the optional extensions if started.
+\end{itemize}
+
+\textbf{Milestone}: Make final changes to the codebase
+
+\paragraph{Sprint 13: 24\textsuperscript{th} March -- 6\textsuperscript{th} April}
+\begin{itemize}
+\item Begin writing the dissertation.
+\item Select important notes and documents from logbook to include in the dissertation.
+\end{itemize}
+
+\textbf{Milestone}: Write first draft of dissertation
+
+\paragraph{Sprint 14: 7\textsuperscript{th} April -- 20\textsuperscript{th} April}
+\begin{itemize}
+\item Clean up, review and finalise the dissertation.
+\end{itemize}
+
+\textbf{Milestone}: Submit dissertation for feedback from supervisor.
+
+\paragraph{Sprint 15: 21\textsuperscript{st} April -- 4\textsuperscript{th} May}
+\begin{itemize}
+\item Amend dissertation with feedback from supervisor.
+\end{itemize}
+
+\textbf{Milestone}: Submit dissertation if completed.
+
+\paragraph{Sprint 16: 5\textsuperscript{th} May -- 18\textsuperscript{th} May}
+\begin{itemize}
+\item Buffer sprint in case dissertation is not adequately finished.
+\end{itemize}
+
+\textbf{Milestone}: Submit dissertation by deadline, Fri 18 May 2018.
+
+
+\section*{Resource Declaration}
+
+\paragraph{Macbook Pro, late 2015 (personal machine)} El Capitan, 16 GB RAM, 2.5 GHz Intel Core i7, 500 GB SSD: Used for code development, dissertation writing. I accept full responsibility for this machine and I have made contingency plans to protect myself against hardware and/or software failure.
+
+\paragraph{Desktop (personal machine)} Ubuntu, 32 GB RAM, 3.6 GHz Intel Core i7, Nvidia GeForce GTX 1080, 256 GB SSD: Used for code development, agent training, running and evaluation. I accept full responsibility for this machine and I have made contingency plans to protect myself against hardware and/or software failure.
+
+\paragraph{}To prevent loss of data, I shall regularly sync my code with GitHub and save trained network weights to Google Drive. In the event of hardware failure, I transfer the code and data over to the following device.
+
+\paragraph{Special hardware from the Computer Lab} A desktop computer with an Nvidia GPU, preferably with 8 GB or more: If set up in the Intel Lab, it would be a good location for user-studies to be held. In addition, if my personal hardware fails, this would be used for agent training.
+
+\paragraph{Cambridge HPCS} The Cambridge High Performance Computing Services cluster will be used as a backup if all of the above fails.
+
+%\pagebreak
+
+\bibliography{giraffe} 
+\bibliographystyle{plain}
+
+\end{document}
