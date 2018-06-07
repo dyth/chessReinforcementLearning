@@ -1,0 +1,270 @@
+\contentsline {paragraph}{}{i}
+\contentsline {paragraph}{}{i}
+\contentsline {paragraph}{}{i}
+\contentsline {paragraph}{}{vii}
+\contentsline {paragraph}{}{vii}
+\contentsline {paragraph}{}{vii}
+\contentsline {chapter}{\numberline {1}Introduction}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {section}{\numberline {1.1}Motivation}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{1}
+\contentsline {paragraph}{}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {section}{\numberline {1.2}Related Work}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {paragraph}{}{2}
+\contentsline {chapter}{\numberline {2}Preparation}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {section}{\numberline {2.1}Components of a Chess Engine}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {section}{\numberline {2.2}Search Algorithms}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsection}{\numberline {2.2.1}Minimax Searching Algorithm}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {subsection}{\numberline {2.2.2}Alpha-Beta Pruning Heuristic}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {subsection}{\numberline {2.2.3}Memoisation using Transposition Table}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {section}{\numberline {2.3}Evaluation Function}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {subsection}{\numberline {2.3.1}Feedforward Neural Networks}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{8}
+\contentsline {subsection}{\numberline {2.3.2}Backpropagation Learning Algorithm}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {subsection}{\numberline {2.3.3}Finding Network Architecture using Cascade Correlation}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {section}{\numberline {2.4}Board Representation}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.4.1}Mailbox}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.4.2}Piece-List Coordinates}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.4.3}Bitboard}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {section}{\numberline {2.5}Reinforcement Learning}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {subsection}{\numberline {2.5.1}TD($\lambda $)}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {subsection}{\numberline {2.5.2}TD-Leaf($\lambda $)}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {section}{\numberline {2.6}Requirements Analysis}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {subsection}{\numberline {2.6.1}Deliverables}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{15}
+\contentsline {subsection}{\numberline {2.6.2}Starting Point}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {subsection}{\numberline {2.6.3}Ethical Considerations}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {section}{\numberline {2.7}Refined Plan}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {section}{\numberline {2.8}Software Engineering Practices}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {subsection}{\numberline {2.8.1}Hardware Used}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{Macbook Pro, late 2015}{17}
+\contentsline {paragraph}{Desktop Computer}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {section}{\numberline {2.9}Conclusion}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {chapter}{\numberline {3}Implementation}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {section}{\numberline {3.1}Deep Learning with Giraffe}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{20}
+\contentsline {section}{\numberline {3.2}Rapid Prototyping in \texttt {Python}}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {subsection}{\numberline {3.2.1}Analysing Representations with Supervised Learning}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {subsection}{\numberline {3.2.2}Finding Network Architectures with Cascade Correlation}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{24}
+\contentsline {subsection}{\numberline {3.2.3}Implementing TD($\lambda $) with Sunfish}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {3.2.4}Implementing a Random Agent}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {subsection}{\numberline {3.2.5}Convergence of Learning Algorithms Using an Endgame}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {3.2.6}Preparing for Deployment}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {section}{\numberline {3.3}Deployment in Stockfish and \texttt {C++}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{30}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {subsection}{\numberline {3.3.1}Inter-Process Communication between \texttt {Python} and \texttt {C++}}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{33}
+\contentsline {subsection}{\numberline {3.3.2}Alpha-Beta Pruning Negamax with Transposition Tables}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {subsection}{\numberline {3.3.3}Training and Tuning Hyperparameters}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {subsection}{\numberline {3.3.4}Piece Square Tables}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {subsection}{\numberline {3.3.5}Overview of Final Codebase}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{36}
+\contentsline {section}{\numberline {3.4}Conclusion}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {chapter}{\numberline {4}Evaluation}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {section}{\numberline {4.1}Objective}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {paragraph}{Null Hypothesis:}{39}
+\contentsline {paragraph}{Alternate Hypothesis:}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {subsection}{\numberline {4.1.1}Win Ratio of Agent Trained by TD($\lambda $)}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {paragraph}{}{39}
+\contentsline {paragraph}{}{40}
+\contentsline {paragraph}{}{40}
+\contentsline {paragraph}{}{40}
+\contentsline {paragraph}{}{41}
+\contentsline {paragraph}{}{41}
+\contentsline {paragraph}{}{41}
+\contentsline {paragraph}{}{42}
+\contentsline {subsection}{\numberline {4.1.2}Win Ratio of Agent Trained by TD-Leaf($\lambda $)}{42}
+\contentsline {paragraph}{}{42}
+\contentsline {paragraph}{}{43}
+\contentsline {paragraph}{}{43}
+\contentsline {subsection}{\numberline {4.1.3}Reproducibility}{43}
+\contentsline {paragraph}{}{43}
+\contentsline {paragraph}{}{44}
+\contentsline {paragraph}{}{44}
+\contentsline {paragraph}{}{45}
+\contentsline {section}{\numberline {4.2}Summary}{45}
+\contentsline {paragraph}{}{45}
+\contentsline {chapter}{\numberline {5}Conclusion}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {section}{\numberline {5.1}Lessons Learned}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {section}{\numberline {5.2}Further Research Directions}{47}
+\contentsline {paragraph}{}{47}
+\contentsline {paragraph}{}{48}
+\contentsline {paragraph}{}{48}
+\contentsline {section}{\numberline {5.3}Summary}{48}
+\contentsline {paragraph}{}{48}
+\contentsline {chapter}{\numberline {A}Forsyth-Edwards Notation (FEN)}{53}
+\contentsline {paragraph}{}{53}
+\contentsline {paragraph}{}{53}
+\contentsline {paragraph}{}{53}
+\contentsline {chapter}{\numberline {B}Project Proposal}{55}
+\contentsline {paragraph}{}{56}
+\contentsline {paragraph}{}{56}
+\contentsline {paragraph}{}{56}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{57}
+\contentsline {paragraph}{}{58}
+\contentsline {paragraph}{}{58}
+\contentsline {paragraph}{Artificial Intelligence, Part IB}{58}
+\contentsline {paragraph}{Machine Learning and Baysean Inference, Part II}{58}
+\contentsline {paragraph}{}{58}
+\contentsline {paragraph}{Algorithms, Part IA}{58}
+\contentsline {paragraph}{Programming in C / C++, Part IB}{58}
+\contentsline {paragraph}{}{58}
+\contentsline {paragraph}{Giraffe}{59}
+\contentsline {paragraph}{XBoard / WinBoard Communication Protocol}{59}
+\contentsline {paragraph}{CCRL, Gaviota}{59}
+\contentsline {paragraph}{Python, PyTorch}{59}
+\contentsline {paragraph}{}{59}
+\contentsline {paragraph}{Null Hypothesis}{59}
+\contentsline {paragraph}{Alternate Hypothesis}{59}
+\contentsline {paragraph}{Significance}{60}
+\contentsline {paragraph}{}{60}
+\contentsline {paragraph}{}{60}
+\contentsline {paragraph}{Sprint 1: 7\textsuperscript {th} October -- 20\textsuperscript {th} October}{60}
+\contentsline {paragraph}{Sprint 2: 21\textsuperscript {st} October -- 3\textsuperscript {rd} November}{60}
+\contentsline {paragraph}{Sprint 3: 4\textsuperscript {th} November -- 17\textsuperscript {th} November}{60}
+\contentsline {paragraph}{Sprint 4: 18\textsuperscript {th} November -- 1\textsuperscript {st} December}{61}
+\contentsline {paragraph}{Sprint 5: 3\textsuperscript {nd} December -- 15\textsuperscript {th} December}{61}
+\contentsline {paragraph}{Sprint 6: 16\textsuperscript {th} December -- 29\textsuperscript {th} December}{61}
+\contentsline {paragraph}{Sprint 7: 30\textsuperscript {th} December -- 12\textsuperscript {th} January}{61}
+\contentsline {paragraph}{Sprint 8: 13\textsuperscript {th} January -- 26\textsuperscript {th} January}{61}
+\contentsline {paragraph}{Sprint 9: 27\textsuperscript {th} January -- 9\textsuperscript {th} February}{61}
+\contentsline {paragraph}{Sprint 10: 10\textsuperscript {th} February -- 23\textsuperscript {rd} February}{62}
+\contentsline {paragraph}{Sprints 11 and 12: 24\textsuperscript {th} February -- 23\textsuperscript {rd} March}{62}
+\contentsline {paragraph}{Sprint 13: 24\textsuperscript {th} March -- 6\textsuperscript {th} April}{62}
+\contentsline {paragraph}{Sprint 14: 7\textsuperscript {th} April -- 20\textsuperscript {th} April}{62}
+\contentsline {paragraph}{Sprint 15: 21\textsuperscript {st} April -- 4\textsuperscript {th} May}{62}
+\contentsline {paragraph}{Sprint 16: 5\textsuperscript {th} May -- 18\textsuperscript {th} May}{62}
+\contentsline {paragraph}{Macbook Pro, late 2015 (personal machine)}{62}
+\contentsline {paragraph}{Desktop (personal machine)}{63}
+\contentsline {paragraph}{}{63}
+\contentsline {paragraph}{Special hardware from the Computer Lab}{63}
+\contentsline {paragraph}{Cambridge HPCS}{63}

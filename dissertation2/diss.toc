@@ -1,0 +1,213 @@
+\contentsline {chapter}{\numberline {1}Introduction (580 / 500)}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {section}{\numberline {1.1}Motivation}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{3}
+\contentsline {paragraph}{}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {section}{\numberline {1.2}Related Work}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {paragraph}{}{4}
+\contentsline {chapter}{\numberline {2}Preparation (3145 / 2500)}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {section}{\numberline {2.1}Components of a Chess Engine}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {paragraph}{}{5}
+\contentsline {section}{\numberline {2.2}Search Algorithms}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {subsection}{\numberline {2.2.1}Minimax Searching Algorithm}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {paragraph}{}{6}
+\contentsline {subsection}{\numberline {2.2.2}Alpha-Beta Pruning Heuristic}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {subsection}{\numberline {2.2.3}Memoisation using Transposition Table}{7}
+\contentsline {paragraph}{}{7}
+\contentsline {section}{\numberline {2.3}Evaluation Function}{8}
+\contentsline {paragraph}{}{8}
+\contentsline {subsection}{\numberline {2.3.1}Feedforward Neural Networks}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{9}
+\contentsline {paragraph}{}{10}
+\contentsline {subsection}{\numberline {2.3.2}Backpropagation Learning Algorithm}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{10}
+\contentsline {paragraph}{}{11}
+\contentsline {subsection}{\numberline {2.3.3}Finding Network Architecture using Cascade Correlation}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {section}{\numberline {2.4}Board Representation}{11}
+\contentsline {paragraph}{}{11}
+\contentsline {subsection}{\numberline {2.4.1}Mailbox}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {subsection}{\numberline {2.4.2}Piece-List Coordinates}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {paragraph}{}{12}
+\contentsline {subsection}{\numberline {2.4.3}Bitboard}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {section}{\numberline {2.5}Reinforcement Learning}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {subsection}{\numberline {2.5.1}TD($\lambda $)}{13}
+\contentsline {paragraph}{}{13}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{14}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {subsection}{\numberline {2.5.2}TD-Leaf($\lambda $)}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{15}
+\contentsline {paragraph}{}{16}
+\contentsline {section}{\numberline {2.6}Requirements Analysis}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {subsection}{\numberline {2.6.1}Deliverables}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {subsection}{\numberline {2.6.2}Starting Point}{16}
+\contentsline {paragraph}{}{16}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {subsection}{\numberline {2.6.3}Ethical Considerations}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {section}{\numberline {2.7}Refined Plan}{17}
+\contentsline {paragraph}{}{17}
+\contentsline {section}{\numberline {2.8}Software Engineering Practices}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {subsection}{\numberline {2.8.1}Hardware Used}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {paragraph}{Macbook Pro, late 2015}{18}
+\contentsline {paragraph}{Desktop Computer}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {section}{\numberline {2.9}Conclusion}{18}
+\contentsline {paragraph}{}{18}
+\contentsline {chapter}{\numberline {3}Implementation (4101 / 4500)}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {section}{\numberline {3.1}Deep Learning with Giraffe}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {paragraph}{}{19}
+\contentsline {section}{\numberline {3.2}Rapid Prototyping in \texttt {Python}}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {subsection}{\numberline {3.2.1}Analysing Representations with Supervised Learning}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{20}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{21}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{22}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {subsection}{\numberline {3.2.2}Finding Network Architectures with Cascade Correlation}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {subsection}{\numberline {3.2.3}Implementing TD($\lambda $) with Sunfish}{23}
+\contentsline {paragraph}{}{23}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{24}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {3.2.4}Implementing a Random Agent}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {subsection}{\numberline {3.2.5}Convergence of Learning Algorithms Using an Endgame}{25}
+\contentsline {paragraph}{}{25}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{26}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {subsection}{\numberline {3.2.6}Preparing for Deployment}{27}
+\contentsline {paragraph}{}{27}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {section}{\numberline {3.3}Deployment in Stockfish and \texttt {C++}}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{28}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {subsection}{\numberline {3.3.1}Inter-Process Communication between \texttt {Python} and \texttt {C++}}{29}
+\contentsline {paragraph}{}{29}
+\contentsline {paragraph}{}{30}
+\contentsline {subsection}{\numberline {3.3.2}Alpha-Beta Pruning Negamax with Transposition Tables}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {subsection}{\numberline {3.3.3}Training and Tuning Hyperparameters}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {subsection}{\numberline {3.3.4}Piece Square Tables}{31}
+\contentsline {paragraph}{}{31}
+\contentsline {subsection}{\numberline {3.3.5}Overview of Final Codebase}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {section}{\numberline {3.4}Conclusion}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {paragraph}{}{32}
+\contentsline {chapter}{\numberline {4}Evaluation (451 / 2000)}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {section}{\numberline {4.1}Fulfilling the Objective}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{Null Hypothesis:}{33}
+\contentsline {paragraph}{Alternate Hypothesis:}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {subsection}{\numberline {4.1.1}Win Ratio}{33}
+\contentsline {paragraph}{}{33}
+\contentsline {paragraph}{}{34}
+\contentsline {subsection}{\numberline {4.1.2}Win Ratio on KRvK Endgame}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {subsection}{\numberline {4.1.3}ELO Rating}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {subsection}{\numberline {4.1.4}Strategic Chess Suite}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {subsection}{\numberline {4.1.5}Reproducibility}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {paragraph}{}{34}
+\contentsline {section}{\numberline {4.2}Analysis of Emergent Properties}{35}
+\contentsline {subsection}{\numberline {4.2.1}How Hyperparameters Affect Performance}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {paragraph}{}{35}
+\contentsline {subsection}{\numberline {4.2.2}Network Architecture}{35}
+\contentsline {subsection}{\numberline {4.2.3}Piece Square Tables}{35}
+\contentsline {chapter}{\numberline {5}Conclusion (437 / 500)}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {section}{\numberline {5.1}Lessons Learned}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {section}{\numberline {5.2}Further Research Directions}{37}
+\contentsline {paragraph}{}{37}
+\contentsline {paragraph}{}{38}
+\contentsline {paragraph}{}{38}
+\contentsline {paragraph}{}{38}
+\contentsline {section}{\numberline {5.3}Summary}{38}
+\contentsline {paragraph}{}{38}
