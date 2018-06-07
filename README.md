@@ -77,7 +77,6 @@ make
 
 ## Food for thought
 
-* Look at Slonik
 * Huber loss rather than L1 loss
 * Komodo most powerful chess engine?
 * David Silver, Meep. Uses TreeStrap and Linear models

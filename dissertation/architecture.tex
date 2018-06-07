@@ -1,0 +1,25 @@
+\documentclass{article}
+\include{amsmath}
+\usepackage{amsfonts}
+\usepackage[margin=1in]{geometry}
+
+\makeatletter
+\newcommand{\@giventhatstar}[2]{\left(#1\;\middle|\;#2\right)}
+\newcommand{\@giventhatnostar}[3][]{#1(#2\;#1|\;#3#1)}
+\newcommand{\giventhat}{\@ifstar\@giventhatstar\@giventhatnostar}
+\makeatother
+
+\begin{document}
+
+\title{Network Architecture}
+\maketitle
+
+\section{Structure}
+
+\paragraph{} Input to the network is a vector which represents a piece-list coordinate table. Each piece is represented by \texttt{rank, file, 9-rank, 9-file}. Ranks and files are taken to be 1-indexed and normalised to the range of \texttt{[0, 1]}. If a piece is not present, the values which would otherwise have been to the coordinates are all \texttt{0}.
+
+\paragraph{} The piece list is in the order of white pawns, white castles, white knights, white bishops, white queens, white kings, followed by their black counterparts. There is a maximum of eight pawns, which could theoretically be promoted to any piece except a King or a piece of the opposing colour. Hence there are a maximum of ten castles, knights and bishops but only nine queens and one king for a single colour. As each piece is represented by four coordinates, a representation for the positions of a single side would have an arity of \texttt{192}. For two players, the total arity of the input is \texttt{384}.
+
+\paragraph{} The network has a two hidden layers, yielding a four layer architecture of \texttt{384, 315, 64, 2}. Given a \textit{board} respresentation as an input, the two values within the output layer approximate $\mathbb{E} \giventhat{\textit{White reward}}{board}$ and $\mathbb{E} \giventhat{\textit{Black reward}}{board}$. The range of the reward is \texttt{(-1, 1)}, with the positive reward given to the winning player and vice versa.
+
+\end{document}
